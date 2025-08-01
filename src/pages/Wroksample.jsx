@@ -14,8 +14,8 @@
           "Context API",
           "Custom Hooks"
         ],
-        "image": "/image/EmployeeTask.png",
-        "video": "/video/TaskManager.mp4",
+        "image": "image/EmployeeTask.png",
+        "video": "video/TaskManager.mp4",
         "liveLink": "https://react-project-ten-mu.vercel.app",
         "githubLink": "https://github.com/alokishere/ReactProject"
       },
@@ -23,8 +23,8 @@
         "title": "Morden Web",
         "description": "Modern animated landing page using HTML, SCSS, JS, and GSAP. Smooth scroll-based UI.",
         "techStack": ["HTML", "SCSS", "JavaScript", "GSAP"],
-        "image": "/image/Morden Portfolio ui.png",
-        "video": "/video/mordenPortfolio.mp4",
+        "image": "image/Morden Portfolio ui.png",
+        "video": "video/mordenPortfolio.mp4",
         "liveLink": "https://morden-web.vercel.app/",
         "githubLink": "https://github.com/alokishere/MordenWeb"
       },
@@ -32,8 +32,8 @@
         "title": "Shreya Pattar Brand Store",
         "description": "React-based personal brand store for Shreya Pattar with product showcase, framer-motion animations, GSAP, and login page.",
         "techStack": ["React", "Tailwind", "Framer Motion", "GSAP", "ScrollTrigger"],
-        "image": "/image/ShreyaPattar.png",
-        "video": "/video/shreyaPattar.mp4",
+        "image": "image/ShreyaPattar.png",
+        "video": "video/shreyaPattar.mp4",
         "liveLink": "https://shreya-pattar.vercel.app/",
         "githubLink": "https://github.com/alokishere/ShreyaPattar"
       },
@@ -41,8 +41,8 @@
         "title": "GitHub AC Fetcher",
         "description": "GitHub profile viewer using GitHub API with light/dark mode toggle. Built using HTML, Tailwind CSS, and JavaScript.",
         "techStack": ["HTML", "Tailwind", "JavaScript", "GitHub API"],
-        "image": "/image/Github-ac-fetcher.png",
-        "video": "/video/github.mp4",
+        "image": "image/Github-ac-fetcher.png",
+        "video": "video/github.mp4",
         "liveLink": "https://github-ac-fetcher.vercel.app/",
         "githubLink": "https://github.com/alokishere/GitHub-Profile-fetcher"
       },
@@ -50,8 +50,8 @@
         "title": "Productivity Dashboard",
         "description": "Multi-feature dashboard including weather, todo list, quotes, themes, and clock. Uses multiple APIs and SCSS.",
         "techStack": ["HTML", "SCSS", "JavaScript", "APIs"],
-        "image": "/image/Productivity DashBord.png",
-        "video": "/video/Dashboard.mp4",
+        "image": "image/Productivity DashBord.png",
+        "video": "video/Dashboard.mp4",
         "liveLink": "https://poductivity-dashboard.vercel.app/",
         "githubLink": "https://github.com/alokishere/Poductivity-dashboard"
       },
@@ -59,8 +59,8 @@
         "title": "Food Recipe App",
         "description": "React app for managing recipes with CRUD functionality. Add, view, update, and delete recipes. Login system coming soon.",
         "techStack": ["React","Tailwind" ,"SCSS", "JavaScript", "localStorage"],
-        "image": "/image/Food Recipe.png",
-        "video": "/video/Foodapp.mp4",
+        "image": "image/Food Recipe.png",
+        "video": "video/Foodapp.mp4",
         "liveLink": "https://food-recipe-one-beta.vercel.app/",
         "githubLink": "https://github.com/alokishere/Food-Recipe"
       },
@@ -68,8 +68,8 @@
         "title": "ProductMart",
         "description": "React-based eCommerce web app with category filters, product detail page, and dynamic product data from backend API.",
         "techStack": ["React", "Tailwind", "API", "Axios", "React Router"],
-        "image": "/image/ProductMart.png",
-        "video": "/video/productmart.mp4",
+        "image": "image/ProductMart.png",
+        "video": "video/productmart.mp4",
         "liveLink": "https://productmart.netlify.app/",
         "githubLink": "https://github.com/alokishere/productmart"
       }
