@@ -1,5 +1,5 @@
 
-import { FaGithub, FaLinkedin, FaXTwitter, FaDownload, FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter, FaDownload, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import Lottie from "lottie-react";
 import contactAnim from "../assets/Contact Us.json"; // Replace with your Lottie animation path
 
@@ -23,12 +23,12 @@ const Contact = () => {
 
           <div className="space-y-3 text-gray-800 font-medium">
             <p>
-              <span className="text-gray-500">Call or text:</span>{" "}
-              <span className="bg-gray-100 px-3 py-1 rounded-md">(+91) 9580908191</span>
+              <a href="tel:+919580908191" className="text-gray-500">Call or text:</a>{" "}
+              <a href="tel:+919580908191" className="bg-gray-100 px-3 py-1 rounded-md">(+91) 9580908191</a>
             </p>
             <p>
-              <span className="text-gray-500">Email me:</span>{" "}
-              <span className="bg-gray-100 px-3 py-1 rounded-md">alokvishwakarmabdh@gmail.com</span>
+              <a href="mailto:alokvishwakarmabdh@gmail.com" className="text-gray-500">Email me:</a>{" "}
+              <a href="mailto:alokvishwakarmabdh@gmail.com" className="bg-gray-100 px-3 py-1 rounded-md">alokvishwakarmabdh@gmail.com</a>
             </p>
             <p>
               <span className="text-gray-500">GitHub:</span>{" "}
@@ -53,7 +53,7 @@ const Contact = () => {
             <p>
               <span className="text-gray-500">X.com:</span>{" "}
               <a
-                href="https://x.com/alokvihwakarma"
+                href="https://x.com/alok_vihwakarma"
                 target="_blank"
                 className="bg-gray-100 px-3 py-1 rounded-md inline-flex items-center gap-2 hover:bg-gray-200 transition"
               >
@@ -61,13 +61,23 @@ const Contact = () => {
               </a>
             </p>
             <p>
-              <span className="text-gray-500">X.com:</span>{" "}
+              <span className="text-gray-500">Instagram:</span>{" "}
               <a
                 href="https://instagram.com/_alok_coder/"
                 target="_blank"
                 className="bg-gray-100 px-3 py-1 rounded-md inline-flex items-center gap-2 hover:bg-gray-200 transition"
               >
                 <FaInstagram /> @_alok_coder
+              </a>
+            </p>
+            <p>
+              <span className="text-gray-500">Whatsapp:</span>{" "}
+              <a
+                href="https://instagram.com/_alok_coder/"
+                target="_blank"
+                className="bg-gray-100 px-3 py-1 rounded-md inline-flex items-center gap-2 hover:bg-gray-200 transition"
+              >
+                <FaWhatsapp /> +91 9580908191
               </a>
             </p>
             

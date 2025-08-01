@@ -4,6 +4,19 @@ import WorkSample from './Wroksample';
 import Contact from './Contact';
 
 const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
+
+
+  const sayHi = () => {
+    const phoneNumber = '919580908191'; // Replace with actual number
+    const message = 'Hello, I am interested in your services.';
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
+  const resume = () => {
+  window.open("https://docs.google.com/document/d/1MKt0MI-H64HYG0mlX1WpELxqz3AhZ6BpmxpSZFJhsuo/edit?usp=sharing", "_blank");
+};
+
   return (
     
      <>
@@ -37,11 +50,15 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
 
 {/* Buttons */}
 <div className="flex gap-6 mt-4">
-  <button className="bg-sky-200 text-sky-800 px-8 py-4 rounded-full text-xl font-semibold flex items-center gap-2 shadow hover:bg-sky-300 transition">
+  <button
+    onClick={sayHi}
+    className="bg-sky-200 text-sky-800 cursor-pointer px-8 py-4 rounded-full text-xl font-semibold flex items-center gap-2 shadow hover:bg-sky-300 transition">
     Say Hi <span role="img" aria-label="wave">👋</span>
   </button>
-  <button className="bg-pink-400 text-white px-8 py-4 rounded-full text-xl font-semibold flex items-center gap-2 shadow hover:bg-pink-500 transition">
-    Download Offline Resume <span role="img" aria-label="resume">📄</span>
+  <button 
+  onClick={resume}
+  className="bg-pink-400 cursor-pointer  text-white px-8 py-4 rounded-full text-xl font-semibold flex items-center gap-2 shadow hover:bg-pink-500 transition">
+    View Resume<span role="img" aria-label="resume">📄</span>
   </button>
 </div>
 </div>

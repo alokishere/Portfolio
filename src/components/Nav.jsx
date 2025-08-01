@@ -12,7 +12,7 @@ const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full">
+    <header className="w-fullz-50 bg-white/1 backdrop-blur-md backdrop-saturate-110 backdrop-brightness-100">
       <nav className="flex items-center justify-between px-6 md:px-10 py-4 md:py-5 max-w-7xl mx-auto relative">
         {/* Logo/Brand */}
         <Link to="/" className="flex items-center text-xl md:text-2xl font-bold text-gray-800">
