@@ -5,10 +5,12 @@ import About from './pages/About'
 import Worksample from './pages/Wroksample'
 import Contact from './pages/Contact'
 import  MainRoutes  from './routes/MainRoutes';
+import CustomMouse from './components/CustomMouse'
 
 const App = () => {
   return (
     <div className='relative'> 
+      <CustomMouse/>
       <div className='sticky top-0 z-50'> <Nav/></div>
 <MainRoutes/>
     </div>
