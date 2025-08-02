@@ -1,5 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import ImageTrail from "../components/ImageTrail";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const WorkSample = () => {
   const projects = [
@@ -89,6 +93,8 @@ const WorkSample = () => {
   ];
 
   const videoRefs = useRef([]);
+  const cardRefs = useRef([]);
+  const headingRef = useRef(null);
 
   const handleMouseEnter = (index) => {
     if (videoRefs.current[index]) {
@@ -103,12 +109,63 @@ const WorkSample = () => {
     }
   };
 
+  useEffect(() => {
+    // Animate heading
+    if (headingRef.current) {
+      gsap.fromTo(
+        headingRef.current,
+        { y: 60, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+          },
+        }
+      );
+    }
+
+    // Animate each project card
+    cardRefs.current.forEach((el, i) => {
+      if (!el) return;
+      gsap.fromTo(
+        el,
+        {
+          y: 80,
+          opacity: 0,
+          scale: 0.97,
+          filter: "blur(8px)",
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.8,
+          delay: i * 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 bg-white">
-      <h2 className="text-4xl mt-10 rounded-2xl pt-5 font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-purple-900 to-sky-100  drop-shadow-lg tracking-tight">
+      <h2
+        ref={headingRef}
+        className="text-4xl mt-10 rounded-2xl pt-5 font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-purple-900 to-sky-100  drop-shadow-lg tracking-tight"
+      >
         Work showcase
         <div
-          style={{ height: "400px", position: "relative", overflow: "hidden"}}
+          style={{ height: "400px", position: "relative", overflow: "hidden" }}
         >
           <ImageTrail
             items={[
@@ -130,6 +187,7 @@ const WorkSample = () => {
         {projects.map((project, index) => (
           <div
             key={index}
+            ref={el => (cardRefs.current[index] = el)}
             className={`flex flex-col lg:flex-row gap-8 items-center ${
               index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
             }`}
@@ -192,7 +250,7 @@ const WorkSample = () => {
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="px-6 py-2 bg-pink-400 hover:bg-pink-600 text-white rounded-lg font-medium transition-colors"
                 >
                   View Live
                 </a>
@@ -200,7 +258,7 @@ const WorkSample = () => {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors"
+                  className="px-6 py-2 border border-gray-300 dark:border-pink-200 hover:bg-gray-100 dark:hover:bg-pink-200 rounded-lg font-medium transition-colors"
                 >
                   GitHub
                 </a>

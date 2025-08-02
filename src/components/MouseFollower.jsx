@@ -17,7 +17,7 @@ const MouseFollower = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 w-4 h-4 bg-pink-500 rounded-full pointer-events-none z-[9999] transition-all duration-75"
+      className="fixed top-0 left-0 w-4 h-4 bg-pink-500 rounded-full pointer-events-none z-[9999] transition-all duration-100"
       style={{
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
       }}
