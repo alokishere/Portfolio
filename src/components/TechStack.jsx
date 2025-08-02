@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SiHtml5,
   SiCss3,
@@ -33,14 +33,39 @@ const skills = [
   { icon: SiFigma, label: "Figma", color: "text-pink-600" },
 ];
 
+const getScale = (hovered, idx) => {
+  if (hovered === null) return 1;
+  const distance = Math.abs(hovered - idx);
+  if (distance === 0) return 1.5; // hovered
+  if (distance === 1) return 1.2; // neighbors
+  if (distance === 2) return 1.05; // next neighbors
+  return 1;
+};
+
 const TechStack = () => {
+  const [hovered, setHovered] = useState(null);
+
   return (
     <section className="mt-10 py-16 px-6 max-w-6xl mx-auto text-center">
-      <h2 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-purple-900 to-sky-100 mb-14 drop-shadow-lg tracking-tight">🛠️ Technologies That Power My Projects</h2>
+      <h2 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-purple-900 to-sky-100 mb-14 drop-shadow-lg tracking-tight">
+        🛠️ Technologies That Power My Projects
+      </h2>
       <div className="flex flex-wrap justify-center gap-10">
         {skills.map(({ icon: Icon, label, color }, index) => (
-          <div key={index} className="flex flex-col items-center group">
-            <Icon className={`w-12 h-12 mb-2 transition-transform group-hover:scale-110 ${color}`} />
+          <div
+            key={index}
+            className="flex flex-col items-center"
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
+            style={{ cursor: "pointer" }}
+          >
+            <Icon
+              className={`w-12 h-12 mb-2 transition-transform duration-200 ${color}`}
+              style={{
+                transform: `scale(${getScale(hovered, index)})`,
+                zIndex: hovered === index ? 2 : 1,
+              }}
+            />
             <span className="text-sm font-medium text-gray-700">{label}</span>
           </div>
         ))}
