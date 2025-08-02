@@ -73,7 +73,7 @@ const Contact = () => {
             <p>
               <span className="text-gray-500">Whatsapp:</span>{" "}
               <a
-                href="https://instagram.com/_alok_coder/"
+                href="https://wa.me/919580908191?text= Hello, I am interested in your services."
                 target="_blank"
                 className="bg-gray-100 px-3 py-1 rounded-md inline-flex items-center gap-2 hover:bg-gray-200 transition"
               >

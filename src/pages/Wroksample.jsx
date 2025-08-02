@@ -104,7 +104,7 @@ const WorkSample = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-7xl mx-auto px-4 py-12 bg-white">
       <h2 className="text-4xl mt-10 rounded-2xl pt-5 font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-purple-900 to-sky-100  drop-shadow-lg tracking-tight">
         Work showcase
         <div
