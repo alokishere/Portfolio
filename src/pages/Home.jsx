@@ -18,27 +18,8 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
     const el = heroRef.current;
     if (!el) return;
 
+
  
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1 } });
-
-    tl.fromTo('.tagline-part-1', { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.2 })
-      .fromTo('.hero-title-word', { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.15, duration: 1 }, "-=0.5")
-      .fromTo('.hero-description', { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, "-=0.7")
-      .fromTo('.hero-buttons button', { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.2, duration: 0.6 }, "-=0.5");
-
-
-  
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top top',
-      end: 'bottom top',
-      pin: false,
-      pinSpacing: false,
-      scrub: 1,
-
-      onLeave: () => gsap.to(el, { opacity: 0, y: -100, duration: 0.5, ease: 'power2.in' }),
-      onEnterBack: () => gsap.to(el, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' })
-    });
 
    
     return () => {

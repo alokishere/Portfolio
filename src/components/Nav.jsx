@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
 
 const navLinks = [
   { name: 'Home', to: '/' },
@@ -14,54 +13,12 @@ const Nav = () => {
   const [showNav, setShowNav] = useState(true);
   const lastScrollY = useRef(window.scrollY);
 
-  // GSAP refs
-  const headerRef = useRef(null);
-  const navLinksRef = useRef([]);
+  // Refs for logo and nav links (no animation, but kept for possible focus/DOM access)
   const logoRef = useRef(null);
+  const navLinksRef = useRef([]);
 
-  // Animate nav bar in on mount
-  useEffect(() => {
-    if (headerRef.current) {
-      gsap.fromTo(
-        headerRef.current,
-        { y: -80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }
-      );
-    }
-    if (logoRef.current) {
-      gsap.fromTo(
-        logoRef.current,
-        { x: -40, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.7, delay: 0.2, ease: 'power3.out' }
-      );
-    }
-    if (navLinksRef.current && navLinksRef.current.length) {
-      gsap.fromTo(
-        navLinksRef.current,
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.08,
-          delay: 0.35,
-          ease: 'power2.out',
-        }
-      );
-    }
-  }, []);
-
-  // Animate mobile menu open/close
+  // Mobile menu ref (no animation, but kept for possible focus/DOM access)
   const mobileMenuRef = useRef(null);
-  useEffect(() => {
-    if (menuOpen && mobileMenuRef.current) {
-      gsap.fromTo(
-        mobileMenuRef.current,
-        { y: -30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' }
-      );
-    }
-  }, [menuOpen]);
 
   // Scroll logic (unchanged)
   useEffect(() => {
@@ -80,7 +37,6 @@ const Nav = () => {
 
   return (
     <header
-      ref={headerRef}
       className={`transition-all duration-300 ${showNav ? 'translate-y-0' : '-translate-y-full'} w-full z-50 bg-white/1 backdrop-blur-md backdrop-saturate-110 backdrop-brightness-100 fixed top-0`}
     >
       <nav className="flex items-center justify-between px-6 md:px-10 py-4 md:py-5 max-w-7xl mx-auto relative">
