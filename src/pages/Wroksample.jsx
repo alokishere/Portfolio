@@ -8,6 +8,22 @@ gsap.registerPlugin(ScrollTrigger);
 const WorkSample = () => {
   const projects = [
     {
+  "title": "Moody Player - Mood Based Music Recommendation",
+  "description": "A full-stack music player that detects the user's real-time mood using the camera and recommends songs accordingly. Built with MERN stack and Tailwind CSS for styling.",
+  "techStack": [
+    "React",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Camera API"
+  ],
+  "image": "image/MoodyPlayer.png",
+  "video": "video/MoodyPlayer.mp4",
+  "liveLink": "https://moody-player.vercel.app",
+  "githubLink": "https://github.com/alokishere/Moody-Player"
+},
+    {
       title: "TaskFlow Hub - Employee Task Management System",
       description:
         "Internal task management system with admin/employee roles, built with React and localStorage authentication.",
@@ -169,6 +185,7 @@ const WorkSample = () => {
         >
           <ImageTrail
             items={[
+              "image/MoodyPlayer.png",
               "image/EmployeeTask.png",
               "image/Food Recipe.png",
               "image/Github-ac-fetcher.png",

@@ -29,41 +29,31 @@ import Nav from './components/Nav';
 import MainRoutes from './routes/MainRoutes';
 import CustomMouse from './components/CustomMouse';
 import MouseFollower from './components/MouseFollower';
-import Loader from './components/Loader';
+import Lenis from 'lenis';
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-  const [assetsLoaded, setAssetsLoaded] = useState(false);
+ useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2, // scroll speed
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easing function
+      smoothWheel: true, // smooth mouse wheel
+    });
 
-  useEffect(() => {
-    // Simulate loading all assets (or replace with actual asset loading)
-    const assetLoadTimer = setTimeout(() => {
-      setAssetsLoaded(true);
-    }, 8000); // Assets take 8 seconds to "load"
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
 
-    // Force completion after 10 seconds max
-    const forceCompleteTimer = setTimeout(() => {
-      setLoading(false);
-    }, 8000);
+    requestAnimationFrame(raf);
 
     return () => {
-      clearTimeout(assetLoadTimer);
-      clearTimeout(forceCompleteTimer);
+      lenis.destroy(); // cleanup when component unmounts
     };
   }, []);
 
-  const handleLoaderFinish = () => {
-    // Only finish if assets are loaded or 10 seconds have passed
-    if (assetsLoaded) {
-      setLoading(false);
-    }
-  };
 
   return (
     <>
-      {loading ? (
-        <Loader onFinish={handleLoaderFinish} />
-      ) : (
         <div className='relative'>
           <MouseFollower />
           <CustomMouse />
@@ -72,7 +62,7 @@ const App = () => {
           </div>
           <MainRoutes />
         </div>
-      )}
+      
     </>
   );
 };

@@ -37,7 +37,7 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
   };
 
   const resume = () => {
-    window.open("https://docs.google.com/document/d/1MKt0MI-H64HYG0mlX1WpELxqz3AhZ6BpmxpSZFJhsuo/edit?usp=sharing", "_blank");
+    window.open("https://drive.google.com/file/d/19s4hey5Vj_Ug26GTas0VjLzVzANuMNxR/view?usp=sharing", "_blank");
   };
 
   return (
