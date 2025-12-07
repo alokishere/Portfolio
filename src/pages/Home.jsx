@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import About from './About';
 import WorkSample from './Wroksample';
 import Contact from './Contact';
-import Cirtificates from '../components/Cirtificates';
+
 
 
 
@@ -98,7 +98,6 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
       </section>
 
       <section ref={aboutRef} id="about" className="min-h-screen relative z-10 bg-white"><About /></section>
-      <section className="min-h-screen relative z-10 bg-white"><Cirtificates  /></section>
       <section ref={workRef} id="worksample" className="min-h-screen relative z-10 bg-white"><WorkSample /></section>
       <section ref={contactRef} id="contact" className="min-h-screen relative z-10 bg-white"><Contact /></section>
     </>

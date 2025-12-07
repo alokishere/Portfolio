@@ -1,112 +1,27 @@
 import React, { useRef, useEffect } from "react";
-import ImageTrail from "../components/ImageTrail";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WorkSample = () => {
-  const projects = [
-    {
-  "title": "Moody Player - Mood Based Music Recommendation",
-  "description": "A full-stack music player that detects the user's real-time mood using the camera and recommends songs accordingly. Built with MERN stack and Tailwind CSS for styling.",
-  "techStack": [
-    "React",
-    "Tailwind CSS",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Camera API"
-  ],
-  "image": "image/MoodyPlayer.png",
-  "video": "video/MoodyPlayer.mp4",
-  "liveLink": "https://moody-player.vercel.app",
-  "githubLink": "https://github.com/alokishere/Moody-Player"
-},
-    {
-      title: "TaskFlow Hub - Employee Task Management System",
+  const projects = [{
+      title: "Moody Player - Mood Based Music Recommendation",
       description:
-        "Internal task management system with admin/employee roles, built with React and localStorage authentication.",
+        "A full-stack music player that detects the user's real-time mood using the camera and recommends songs accordingly. Built with MERN stack and Tailwind CSS for styling.",
       techStack: [
         "React",
         "Tailwind CSS",
-        "React Router",
-        "LocalStorage API",
-        "Context API",
-        "Custom Hooks",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Camera API",
       ],
-      image: "image/EmployeeTask.png",
-      video: "video/TaskManager.mp4",
-      liveLink: "https://react-project-ten-mu.vercel.app",
-      githubLink: "https://github.com/alokishere/ReactProject",
-    },
-    {
-      title: "Morden Web",
-      description:
-        "Modern animated landing page using HTML, SCSS, JS, and GSAP. Smooth scroll-based UI.",
-      techStack: ["HTML", "SCSS", "JavaScript", "GSAP"],
-      image: "image/Morden Portfolio ui.png",
-      video: "video/mordenPortfolio.mp4",
-      liveLink: "https://morden-web.vercel.app/",
-      githubLink: "https://github.com/alokishere/MordenWeb",
-    },
-    {
-      title: "Shreya Pattar Brand Store",
-      description:
-        "React-based personal brand store for Shreya Pattar with product showcase, framer-motion animations, GSAP, and login page.",
-      techStack: [
-        "React",
-        "Tailwind",
-        "Framer Motion",
-        "GSAP",
-        "ScrollTrigger",
-      ],
-      image: "image/ShreyaPattar.png",
-      video: "video/shreyaPattar.mp4",
-      liveLink: "https://shreya-pattar.vercel.app/",
-      githubLink: "https://github.com/alokishere/ShreyaPattar",
-    },
-    {
-      title: "GitHub AC Fetcher",
-      description:
-        "GitHub profile viewer using GitHub API with light/dark mode toggle. Built using HTML, Tailwind CSS, and JavaScript.",
-      techStack: ["HTML", "Tailwind", "JavaScript", "GitHub API"],
-      image: "image/Github-ac-fetcher.png",
-      video: "video/github.mp4",
-      liveLink: "https://github-ac-fetcher.vercel.app/",
-      githubLink: "https://github.com/alokishere/GitHub-Profile-fetcher",
-    },
-    {
-      title: "Productivity Dashboard",
-      description:
-        "Multi-feature dashboard including weather, todo list, quotes, themes, and clock. Uses multiple APIs and SCSS.",
-      techStack: ["HTML", "SCSS", "JavaScript", "APIs"],
-      image: "image/Productivity DashBord.png",
-      video: "video/Dashboard.mp4",
-      liveLink: "https://poductivity-dashboard.vercel.app/",
-      githubLink: "https://github.com/alokishere/Poductivity-dashboard",
-    },
-    {
-      title: "Food Recipe App",
-      description:
-        "React app for managing recipes with CRUD functionality. Add, view, update, and delete recipes. Login system coming soon.",
-      techStack: ["React", "Tailwind", "SCSS", "JavaScript", "localStorage"],
-      image: "image/Food Recipe.png",
-      video: "video/Foodapp.mp4",
-      liveLink: "https://food-recipe-one-beta.vercel.app/",
-      githubLink: "https://github.com/alokishere/Food-Recipe",
-    },
-    {
-      title: "ProductMart",
-      description:
-        "React-based eCommerce web app with category filters, product detail page, and dynamic product data from backend API.",
-      techStack: ["React", "Tailwind", "API", "Axios", "React Router"],
-      image: "image/ProductMart.png",
-      video: "video/productmart.mp4",
-      liveLink: "https://productmart.netlify.app/",
-      githubLink: "https://github.com/alokishere/productmart",
-    },
-  ];
+      image: "image/MoodyPlayer.png",
+
+      liveLink: "https://moody-player.vercel.app",
+      githubLink: "https://github.com/alokishere/Moody-Player",
+    }];
 
   const videoRefs = useRef([]);
   const cardRefs = useRef([]);
@@ -180,31 +95,13 @@ const WorkSample = () => {
         className="text-4xl mt-10 rounded-2xl pt-5 font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-purple-900 to-sky-100  drop-shadow-lg tracking-tight"
       >
         Work showcase
-        <div
-          style={{ height: "400px", position: "relative", overflow: "hidden" }}
-        >
-          <ImageTrail
-            items={[
-              "image/MoodyPlayer.png",
-              "image/EmployeeTask.png",
-              "image/Food Recipe.png",
-              "image/Github-ac-fetcher.png",
-              "image/Morden Portfolio ui.png",
-              "image/Productivity DashBord.png",
-              "image/ProductMart.png",
-              "image/ShreyaPattar.png",
-              // ...
-            ]}
-            variant={1}
-          />
-        </div>
       </h2>
 
       <div className="space-y-20">
         {projects.map((project, index) => (
           <div
             key={index}
-            ref={el => (cardRefs.current[index] = el)}
+            ref={(el) => (cardRefs.current[index] = el)}
             className={`flex flex-col lg:flex-row gap-8 items-center ${
               index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
             }`}
@@ -215,22 +112,13 @@ const WorkSample = () => {
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
-              {project.video ? (
-                <video
-                  ref={(el) => (videoRefs.current[index] = el)}
-                  src={project.video}
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              ) : (
+              
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-              )}
+              
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <a
                   href={project.liveLink}

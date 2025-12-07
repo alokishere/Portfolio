@@ -1,3 +1,12 @@
 @import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap');
+
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 1.6s infinite;
+}
