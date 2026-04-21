@@ -30,7 +30,8 @@ const Nav = () => {
   };
 
   const handleContactClick = () => {
-    if (location.pathname === '/') {
+    if (location.pathname === '/'
+    ) {
       scrollToSection('contact');
       return;
     }
@@ -77,12 +78,13 @@ const Nav = () => {
             Contact
           </button>
 
-          <button
-            onClick={handleContactClick}
+          <a
+           href='http://alok.company/'
+           target='_blank'
             className="bg-gray-900 text-white text-sm md:text-base px-4 py-2 rounded-full ml-2 w-full md:w-auto"
           >
-            Hire Me
-          </button>
+            Hire Studio
+          </a>
         </div>
 
         <MobileMenu
@@ -129,12 +131,13 @@ const MobileMenu = ({ onWorkClick, onAboutClick, onContactClick }) => {
 
           <button className="text-sm text-gray-600" onClick={() => handleWithClose(onContactClick)}>Contact</button>
 
-          <button
-            onClick={() => handleWithClose(onContactClick)}
+          <a
+          href='http://alok.company/'
+          target='_blank'
             className="bg-gray-900 text-white text-sm px-5 py-2 rounded-full w-full md:w-auto"
           >
-            Hire Me
-          </button>
+            Hire Studio
+          </a>
         </div>
       )}
     </div>
