@@ -180,7 +180,7 @@ const About = () => {
                 Diploma in Computer Science
               </p>
               <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mt-0.5">
-                Lucknow · 2023
+                Lucknow · 2023 - 2026
               </p>
             </div>
 
