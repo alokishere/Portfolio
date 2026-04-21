@@ -14,90 +14,6 @@ const projects = [
     githubLink: "https://github.com/alokishere/Moody-Player",
     year: "2024",
   },
-  {
-    tag: "Full Stack · MERN",
-    title: "Moody Player",
-    subtitle: "Mood-based music recommendation",
-    description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
-    image: "image/MoodyPlayer.png",
-    liveLink: "https://moody-player.vercel.app",
-    githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
-  },
-  {
-    tag: "Full Stack · MERN",
-    title: "Moody Player",
-    subtitle: "Mood-based music recommendation",
-    description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
-    image: "image/MoodyPlayer.png",
-    liveLink: "https://moody-player.vercel.app",
-    githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
-  },
-  {
-    tag: "Full Stack · MERN",
-    title: "Moody Player",
-    subtitle: "Mood-based music recommendation",
-    description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
-    image: "image/MoodyPlayer.png",
-    liveLink: "https://moody-player.vercel.app",
-    githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
-  },
-  {
-    tag: "Full Stack · MERN",
-    title: "Moody Player",
-    subtitle: "Mood-based music recommendation",
-    description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
-    image: "image/MoodyPlayer.png",
-    liveLink: "https://moody-player.vercel.app",
-    githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
-  },
-  {
-    tag: "Full Stack · MERN",
-    title: "Moody Player",
-    subtitle: "Mood-based music recommendation",
-    description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
-    image: "image/MoodyPlayer.png",
-    liveLink: "https://moody-player.vercel.app",
-    githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
-  },
-  {
-    tag: "Full Stack · MERN",
-    title: "Moody Player",
-    subtitle: "Mood-based music recommendation",
-    description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
-    image: "image/MoodyPlayer.png",
-    liveLink: "https://moody-player.vercel.app",
-    githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
-  },
-  {
-    tag: "Full Stack · MERN",
-    title: "Moody Player",
-    subtitle: "Mood-based music recommendation",
-    description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
-    image: "image/MoodyPlayer.png",
-    liveLink: "https://moody-player.vercel.app",
-    githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
-  },
 ];
 
 const fadeUp = {
@@ -146,8 +62,9 @@ const WorkSample = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-80px" }}
-              className={`grid md:grid-cols-2 gap-12 md:gap-20 items-center ${index % 2 !== 0 ? "md:[&>*:first-child]:order-2" : ""
-                }`}
+              className={`grid md:grid-cols-2 gap-12 md:gap-20 items-center ${
+                index % 2 !== 0 ? "md:[&>*:first-child]:order-2" : ""
+              }`}
             >
               {/* Image */}
               <motion.div
@@ -241,6 +158,7 @@ const WorkSample = () => {
                   </a>
                 </motion.div>
               </div>
+
             </motion.div>
           ))}
         </div>
@@ -267,8 +185,8 @@ const WorkSample = () => {
           </a>
         </motion.div>
 
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };
 
