@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import About from './About';
 import WorkSample from './Wroksample';
 import Contact from './Contact';
@@ -14,6 +15,7 @@ const fadeUp = {
 };
 
 const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
+  const navigate = useNavigate();
 
   const sayHi = () => {
     const phoneNumber = '919580908191';
@@ -173,11 +175,22 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                       </span>
                     ))}
                   </div>
-                  <p className="text-[11px] text-gray-300 group-hover:text-gray-600 mt-3 transition-colors duration-150">
+                  <button
+                    type="button"
+                    onClick={() => navigate('/work')}
+                    className="text-[11px] text-gray-300 group-hover:text-gray-600 mt-3 transition-colors duration-150"
+                  >
                     View project →
-                  </p>
+                  </button>
                 </div>
               ))}
+              <button
+                type="button"
+                onClick={() => navigate('/work')}
+                className="self-start text-xs font-mono text-gray-400 hover:text-gray-900 transition-colors duration-150 pt-1"
+              >
+                See all work →
+              </button>
             </motion.div>
 
           </div>

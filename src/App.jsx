@@ -1,9 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Nav from './components/Nav';
-import MainRoutes from './routes/MainRoutes';
 import MouseFollower from './components/MouseFollower';
 import Lenis from 'lenis';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+import WorkPage from './pages/WorkPage';
 
 const App = () => {
  useEffect(() => {
@@ -34,7 +37,11 @@ const App = () => {
           <div className='sticky top-0 z-50'>
             <Nav />
           </div>
-          <MainRoutes />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/work" element={<WorkPage />} />
+          </Routes>
         </div>
       
     </>

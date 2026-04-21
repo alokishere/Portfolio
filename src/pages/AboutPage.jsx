@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import Contact from './Contact';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -139,6 +141,7 @@ const AboutPage = () => {
           ))}
         </div>
       </motion.section>
+      <Contact/>
     </div>
   );
 };

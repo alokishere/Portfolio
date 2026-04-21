@@ -14,8 +14,8 @@ const fadeUp = {
 
 const socials = [
   { label: "GitHub", icon: FaGithub, handle: "alokishere", href: "https://github.com/alokishere" },
-  { label: "LinkedIn", icon: FaLinkedin, handle: "alok-webdev", href: "https://linkedin.com/in/alok-webdev" },
-  { label: "X.com", icon: FaXTwitter, handle: "@alokdev", href: "https://x.com/alok_vihwakarma" },
+  { label: "LinkedIn", icon: FaLinkedin, handle: "alok-js", href: "https://linkedin.com/in/alok-js" },
+  { label: "X.com", icon: FaXTwitter, handle: "@alokd-js", href: "https://x.com/alok_js" },
   { label: "Instagram", icon: FaInstagram, handle: "@_alok_coder", href: "https://instagram.com/_alok_coder/" },
   { label: "WhatsApp", icon: FaWhatsapp, handle: "+91 9580908191", href: "https://wa.me/919580908191?text=Hello, I am interested in your services." },
 ];
