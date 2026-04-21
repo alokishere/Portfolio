@@ -52,7 +52,7 @@ const About = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-white px-8 md:px-16 py-24 border-t border-gray-100">
+    <section className="bg-white px-6 md:px-12 lg:px-20 py-16 md:py-24 border-t border-gray-100">
       <div className="max-w-5xl mx-auto">
 
         {/* Section label + heading */}
@@ -65,14 +65,14 @@ const About = () => {
           <motion.p
             variants={fadeUp}
             custom={0}
-            className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-3"
+            className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3"
           >
             Who I am
           </motion.p>
           <motion.h2
             variants={fadeUp}
             custom={0.1}
-            className="text-4xl md:text-5xl font-light tracking-tight text-gray-900"
+            className="text-3xl md:text-5xl font-light tracking-tight text-gray-900"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             About
@@ -84,16 +84,16 @@ const About = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-16 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-20"
         >
           {/* Intro */}
           <motion.div variants={fadeUp} custom={0}>
-            <p className="text-sm text-gray-400 font-light leading-relaxed mb-6">
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
               Full stack developer based in Lucknow, building scalable web
               applications using React, Node.js, and MongoDB. I focus on clean
               architecture, performance, and real-world usability.
             </p>
-            <p className="text-sm text-gray-400 font-light leading-relaxed">
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               Outside of client work, I run{" "}
               <span className="font-mono text-gray-600">Alok Labs</span> — an
               independent studio where I build SaaS products and tools for
@@ -103,7 +103,7 @@ const About = () => {
 
           {/* Experience timeline */}
           <motion.div variants={fadeUp} custom={0.1}>
-            <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-6">
+            <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-6">
               Experience
             </p>
             <div className="flex flex-col gap-6">
@@ -120,10 +120,10 @@ const About = () => {
                     <p className="text-sm font-medium text-gray-900 tracking-tight">
                       {exp.role}
                     </p>
-                    <p className="text-[10px] font-mono text-gray-400 mb-1">
+                    <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-1">
                       {exp.company} · {exp.duration}
                     </p>
-                    <p className="text-xs text-gray-400 font-light leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                       {exp.desc}
                     </p>
                   </div>
@@ -141,11 +141,11 @@ const About = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
         >
           {/* Skills */}
           <motion.div variants={fadeUp} custom={0}>
-            <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-6">
+            <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-6">
               Tech Stack
             </p>
             <div className="flex flex-wrap gap-5">
@@ -161,7 +161,7 @@ const About = () => {
                       hovered === index ? color : "text-gray-300"
                     }`}
                   />
-                  <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wide">
+                  <span className="text-xs font-mono uppercase tracking-widest text-gray-500">
                     {name}
                   </span>
                 </div>
@@ -173,13 +173,13 @@ const About = () => {
           <motion.div variants={fadeUp} custom={0.1} className="flex flex-col gap-8">
 
             <div>
-              <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-4">
+              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-4">
                 Education
               </p>
               <p className="text-sm font-medium text-gray-900 tracking-tight">
                 Diploma in Computer Science
               </p>
-              <p className="text-[10px] font-mono text-gray-400 mt-0.5">
+              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mt-0.5">
                 Lucknow · 2023
               </p>
             </div>
@@ -187,7 +187,7 @@ const About = () => {
             <div className="w-full h-px bg-gray-100" />
 
             <div>
-              <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-4">
+              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-4">
                 Currently
               </p>
               <div className="flex flex-col gap-2">
@@ -198,7 +198,7 @@ const About = () => {
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
-                    <p className="text-xs text-gray-400 font-light">{item}</p>
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">{item}</p>
                   </div>
                 ))}
               </div>
@@ -218,7 +218,7 @@ const About = () => {
           <button
             type="button"
             onClick={() => navigate("/about")}
-            className="text-[10px] font-mono uppercase tracking-widest text-gray-400 hover:text-gray-900 transition-colors duration-150"
+            className="text-xs font-mono uppercase tracking-widest text-gray-500 hover:text-gray-900 transition-colors duration-150"
           >
             More about me →
           </button>
@@ -229,4 +229,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default React.memo(About);

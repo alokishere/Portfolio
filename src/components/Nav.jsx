@@ -56,30 +56,30 @@ const Nav = () => {
         scrolled ? 'bg-white' : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
         <div
           onClick={handleLogoClick}
-          className="text-xl font-semibold text-black cursor-pointer"
+          className="text-xl font-semibold text-gray-900 cursor-pointer"
         >
           Alok.
         </div>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
-          <button onClick={handleWorkClick} className="hover:text-black transition">
+        <div className="hidden md:flex items-center gap-8 text-sm md:text-base font-medium text-gray-600 flex-wrap">
+          <button onClick={handleWorkClick} className="hover:text-gray-900 transition">
             Work
           </button>
 
-          <button onClick={handleAboutClick} className="hover:text-black transition">
+          <button onClick={handleAboutClick} className="hover:text-gray-900 transition">
             About
           </button>
 
-          <button onClick={handleContactClick} className="hover:text-black transition">
+          <button onClick={handleContactClick} className="hover:text-gray-900 transition">
             Contact
           </button>
 
           <button
             onClick={handleContactClick}
-            className="bg-black text-white px-4 py-2 rounded-lg ml-2"
+            className="bg-gray-900 text-white text-sm md:text-base px-4 py-2 rounded-full ml-2 w-full md:w-auto"
           >
             Hire Me
           </button>
@@ -122,16 +122,16 @@ const MobileMenu = ({ onWorkClick, onAboutClick, onContactClick }) => {
       </button>
 
       {open && (
-        <div className="absolute top-16 left-0 w-full bg-white py-4 flex flex-col items-center gap-4">
-          <button onClick={() => handleWithClose(onWorkClick)}>Work</button>
+        <div className="absolute top-16 left-0 w-full bg-white py-4 px-6 flex flex-col items-stretch gap-4">
+          <button className="text-sm text-gray-600" onClick={() => handleWithClose(onWorkClick)}>Work</button>
 
-          <button onClick={() => handleWithClose(onAboutClick)}>About</button>
+          <button className="text-sm text-gray-600" onClick={() => handleWithClose(onAboutClick)}>About</button>
 
-          <button onClick={() => handleWithClose(onContactClick)}>Contact</button>
+          <button className="text-sm text-gray-600" onClick={() => handleWithClose(onContactClick)}>Contact</button>
 
           <button
             onClick={() => handleWithClose(onContactClick)}
-            className="bg-black text-white px-5 py-2 rounded-lg"
+            className="bg-gray-900 text-white text-sm px-5 py-2 rounded-full w-full md:w-auto"
           >
             Hire Me
           </button>

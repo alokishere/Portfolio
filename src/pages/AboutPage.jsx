@@ -34,9 +34,9 @@ const AboutPage = () => {
   };
 
   const experience = [
-    { year: '2024 - Present', title: 'Full Stack Developer', company: 'Sarathi India Pvt. Ltd.' },
-    { year: '2024', title: 'Web Developer Intern', company: 'Sarathi India Pvt. Ltd. (3 months)' },
-    { year: '2023', title: 'Junior Full Stack Developer', company: 'Life Infotech (1 month)' },
+    { year: '2026 - Present', title: 'Full Stack Developer', company: 'Sarathi India Pvt. Ltd.' },
+    { year: '2026', title: 'Web Developer Intern', company: 'Sarathi India Pvt. Ltd. (3 months)' },
+    { year: '2026', title: 'Junior Full Stack Developer', company: 'Life Infotech (1 month)' },
   ];
 
   return (
@@ -46,7 +46,7 @@ const AboutPage = () => {
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         onClick={() => navigate('/')}
-        className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-900 transition-colors mb-20 group"
+        className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-900 transition-colors mb-20 group mt-5"
       >
         <span className="group-hover:-translate-x-1 transition-transform">←</span> Back
       </motion.button>
@@ -86,7 +86,7 @@ const AboutPage = () => {
             My journey into the world of development started with a curiosity about how things work on the internet. What began as experimenting with HTML and CSS quickly evolved into a passion for building complex, full-stack applications. I thrive on the challenge of turning abstract ideas into functional, pixel-perfect reality.
           </p>
           <p>
-            Over the past few years, I've dedicated myself to mastering the MERN stack. I believe that great software is not just about writing code, but about solving real-world problems and creating value for users. Whether it's a real-time chat system or a complex dashboard, I approach every project with a focus on performance and maintainability.
+            Over the past few months, I've dedicated myself to mastering the MERN stack. I believe that great software is not just about writing code, but about solving real-world problems and creating value for users. Whether it's a real-time chat system or a complex dashboard, I approach every project with a focus on performance and maintainability.
           </p>
         </div>
       </motion.section>

@@ -1,3 +1,4 @@
+import React from "react";
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
@@ -34,12 +35,12 @@ const Contact = () => {
     <section className="w-full bg-white border-t border-gray-100">
 
       {/* Top CTA band */}
-      <div className="max-w-5xl mx-auto px-8 md:px-16 py-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-24">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-16 items-start"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start"
         >
 
           {/* Left */}
@@ -47,7 +48,7 @@ const Contact = () => {
             <motion.p
               variants={fadeUp}
               custom={0}
-              className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-4"
+              className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-4"
             >
               Let's work together
             </motion.p>
@@ -55,7 +56,7 @@ const Contact = () => {
             <motion.h2
               variants={fadeUp}
               custom={0.1}
-              className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] mb-6"
+              className="text-3xl md:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] mb-6"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               Got a project<br />
@@ -65,7 +66,7 @@ const Contact = () => {
             <motion.p
               variants={fadeUp}
               custom={0.2}
-              className="text-sm text-gray-400 font-light leading-relaxed mb-10 max-w-sm"
+              className="text-sm md:text-base text-gray-600 leading-relaxed mb-10 max-w-sm"
             >
               I'm available for freelance projects, full-time roles, and
               consulting. Clean code, scalable architecture, shipped fast.
@@ -79,7 +80,7 @@ const Contact = () => {
             >
               <a
                 href="mailto:alokvishwakarmabdh@gmail.com"
-                className="text-sm font-medium text-white bg-gray-900 px-5 py-2.5 rounded-full hover:opacity-80 active:scale-95 transition-all duration-150"
+                className="text-sm md:text-base font-medium text-white bg-gray-900 px-5 py-2.5 rounded-full hover:opacity-80 active:scale-95 transition-all duration-150 w-full md:w-auto text-center"
               >
                 Send Email
               </a>
@@ -88,14 +89,14 @@ const Contact = () => {
                 href="https://wa.me/919580908191?text=Hello, I am interested in your services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-500 border border-gray-200 px-5 py-2.5 rounded-full hover:border-gray-400 hover:text-gray-900 active:scale-95 transition-all duration-150 inline-flex items-center gap-2"
+                className="text-sm md:text-base text-gray-600 border border-gray-200 px-5 py-2.5 rounded-full hover:border-gray-400 hover:text-gray-900 active:scale-95 transition-all duration-150 inline-flex items-center justify-center gap-2 w-full md:w-auto"
               >
                 <FaWhatsapp size={13} /> WhatsApp
               </a>
 
               <a
                 href="tel:+919580908191"
-                className="text-sm text-gray-500 border border-gray-200 px-5 py-2.5 rounded-full hover:border-gray-400 hover:text-gray-900 active:scale-95 transition-all duration-150"
+                className="text-sm md:text-base text-gray-600 border border-gray-200 px-5 py-2.5 rounded-full hover:border-gray-400 hover:text-gray-900 active:scale-95 transition-all duration-150 w-full md:w-auto text-center"
               >
                 Call Me
               </a>
@@ -103,14 +104,14 @@ const Contact = () => {
 
             {/* Services */}
             <motion.div variants={fadeUp} custom={0.4}>
-              <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-3">
+              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3">
                 Services
               </p>
               <div className="flex flex-wrap gap-2">
                 {services.map((s) => (
                   <span
                     key={s}
-                    className="text-[10px] font-mono text-gray-400 border border-gray-100 rounded-full px-3 py-1 uppercase tracking-wide"
+                    className="text-xs font-mono text-gray-600 border border-gray-200 rounded-full px-3 py-1 uppercase tracking-widest"
                   >
                     {s}
                   </span>
@@ -120,7 +121,7 @@ const Contact = () => {
           </div>
 
           {/* Right */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8 md:gap-12">
 
             {/* Lottie */}
             <motion.div variants={fadeUp} custom={0.2}>
@@ -135,9 +136,9 @@ const Contact = () => {
             <motion.div
               variants={fadeUp}
               custom={0.3}
-              className="border border-gray-100 rounded-2xl p-5"
+              className="border border-gray-100 rounded-2xl p-6"
             >
-              <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-3">
+              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3">
                 My Studio
               </p>
               <h3
@@ -146,7 +147,7 @@ const Contact = () => {
               >
                 Alok Labs
               </h3>
-              <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
                 Independent dev studio offering web development, SaaS MVPs, and
                 digital consulting for startups and businesses. Operating under{" "}
                 <span className="font-mono text-gray-500">alok.company</span>
@@ -154,7 +155,7 @@ const Contact = () => {
               <div className="flex gap-3">
                 <a
                   href="mailto:alokvishwakarmabdh@gmail.com"
-                  className="text-[10px] font-mono text-gray-400 border border-gray-100 rounded-full px-3 py-1.5 hover:border-gray-300 hover:text-gray-900 transition-all"
+                  className="text-xs font-mono uppercase tracking-widest text-gray-600 border border-gray-200 rounded-full px-3 py-1 hover:border-gray-300 hover:text-gray-900 transition-all"
                 >
                   Hire the studio →
                 </a>
@@ -163,15 +164,15 @@ const Contact = () => {
 
             {/* Contact details */}
             <motion.div variants={fadeUp} custom={0.4} className="space-y-2">
-              <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-3">
+              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3">
                 Direct
               </p>
               <a
                 href="tel:+919580908191"
                 className="flex items-center justify-between py-2.5 border-b border-gray-100 group"
               >
-                <span className="text-xs text-gray-400 font-mono">Phone</span>
-                <span className="text-xs text-gray-600 group-hover:text-gray-900 transition-colors">
+                <span className="text-xs font-mono uppercase tracking-widest text-gray-500">Phone</span>
+                <span className="text-sm md:text-base text-gray-600 group-hover:text-gray-900 transition-colors">
                   +91 9580908191 →
                 </span>
               </a>
@@ -180,18 +181,18 @@ const Contact = () => {
                 href="mailto:alokvishwakarmabdh@gmail.com"
                 className="flex items-center justify-between py-2.5 border-b border-gray-100 group"
               >
-                <span className="text-xs text-gray-400 font-mono">Email</span>
-                <span className="text-xs text-gray-600 group-hover:text-gray-900 transition-colors">
+                <span className="text-xs font-mono uppercase tracking-widest text-gray-500">Email</span>
+                <span className="text-sm md:text-base text-gray-600 group-hover:text-gray-900 transition-colors">
                   alokvishwakarmabdh@gmail.com →
                 </span>
               </a>
               <div className="flex items-center justify-between py-2.5 border-b border-gray-100">
-                <span className="text-xs text-gray-400 font-mono">Location</span>
-                <span className="text-xs text-gray-600">Lucknow, India</span>
+                <span className="text-xs font-mono uppercase tracking-widest text-gray-500">Location</span>
+                <span className="text-sm md:text-base text-gray-600">Lucknow, India</span>
               </div>
               <div className="flex items-center justify-between py-2.5">
-                <span className="text-xs text-gray-400 font-mono">Status</span>
-                <span className="inline-flex items-center gap-1.5 text-xs text-gray-600">
+                <span className="text-xs font-mono uppercase tracking-widest text-gray-500">Status</span>
+                <span className="inline-flex items-center gap-1.5 text-sm md:text-base text-gray-600">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   Available for work
                 </span>
@@ -204,7 +205,7 @@ const Contact = () => {
 
       {/* Footer bar */}
       <div className="border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-8 md:px-16 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
 
           {/* Socials */}
           <div className="flex items-center gap-5">
@@ -215,7 +216,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={label}
-                className="text-gray-300 hover:text-gray-900 transition-colors duration-150"
+                className="text-gray-500 hover:text-gray-900 transition-colors duration-150"
               >
                 <Icon size={15} />
               </a>
@@ -223,12 +224,12 @@ const Contact = () => {
           </div>
 
           {/* Center */}
-          <p className="text-[10px] font-mono text-gray-300 tracking-widest uppercase">
+          <p className="text-xs font-mono text-gray-500 tracking-widest uppercase">
             Alok Vishwakarma · Alok Labs · {new Date().getFullYear()}
           </p>
 
           {/* Right */}
-          <p className="text-[10px] font-mono text-gray-300">
+          <p className="text-xs font-mono text-gray-500">
             Built with React + Tailwind
           </p>
 
@@ -239,4 +240,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default React.memo(Contact);

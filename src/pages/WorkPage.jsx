@@ -27,7 +27,7 @@ const projects = [
   {
     category: 'Full Stack',
     title: 'Employee Management System',
-    year: '2024',
+    year: '2026',
     description:
       'Real-time WebSocket chat with typing indicators and seen receipts. Browser push notifications scheduled via node-cron. JWT authentication with role-based access.',
     tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Web Push API', 'JWT'],
@@ -35,7 +35,7 @@ const projects = [
   {
     category: 'Chrome Extension',
     title: 'Google Maps Lead Scraper',
-    year: '2024',
+    year: '2026',
     description:
       'Auto-scrolling with MutationObserver to detect new listings. Click-per-listing phone number extraction. Clean CSV export for lead generation workflows.',
     tech: ['JavaScript', 'Chrome Extension API', 'DOM'],
@@ -43,7 +43,7 @@ const projects = [
   {
     category: 'SaaS',
     title: 'ARVI Chatbot',
-    year: '2024',
+    year: '2025',
     description:
       'Hinglish-speaking AI assistant. Migrated from Gemini to Groq llama-3.3-70b for chat. Retained Gemini gemini-embedding-001 for vector search.',
     tech: ['Node.js', 'Groq API', 'Gemini Embeddings', 'Vector DB'],
@@ -51,7 +51,7 @@ const projects = [
   {
     category: 'Full Stack',
     title: 'Sarathi India Portfolio',
-    year: '2024',
+    year: '2025',
     description:
       'Corporate portfolio for Lucknow-based IT company. Custom DNS setup with CNAME records. Dynamic Axios base URL for local/production switching.',
     tech: ['React', 'Tailwind', 'Vercel', 'Hostinger DNS'],
@@ -59,7 +59,7 @@ const projects = [
   {
     category: 'Full Stack',
     title: 'BeFit Gym Website',
-    year: '2024',
+    year: '2026',
     description:
       'Production-ready gym landing page for a Lucknow client. Fully responsive with modern UI, service sections, and contact integration.',
     tech: ['React', 'Tailwind CSS'],
@@ -67,7 +67,7 @@ const projects = [
   {
     category: 'Full Stack',
     title: 'React Admin Dashboard',
-    year: '2024',
+    year: '2026',
     description:
       'Blog creation interface with SERP preview. SEO meta fields, slug generation, rich text. Fixed layout and scrolling bugs in complex nested layouts.',
     tech: ['React', 'react-hook-form', 'SEO fields'],
@@ -91,7 +91,7 @@ const WorkPage = () => {
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           onClick={() => navigate('/')}
-          className="text-sm font-mono text-gray-400 hover:text-gray-900 transition mb-14"
+          className="text-sm font-mono text-gray-400 hover:text-gray-900 transition mb-14 mt-5"
         >
           ← Back
         </motion.button>

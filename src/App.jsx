@@ -1,12 +1,13 @@
 
-import React, { useEffect } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import Nav from './components/Nav';
 import MouseFollower from './components/MouseFollower';
 import Lenis from 'lenis';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import AboutPage from './pages/AboutPage';
-import WorkPage from './pages/WorkPage';
+
+const Home = lazy(() => import('./pages/Home'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const WorkPage = lazy(() => import('./pages/WorkPage'));
 
 const App = () => {
  useEffect(() => {
@@ -37,11 +38,13 @@ const App = () => {
           <div className='sticky top-0 z-50'>
             <Nav />
           </div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/work" element={<WorkPage />} />
-          </Routes>
+          <Suspense fallback={<div className="min-h-screen bg-white" />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/work" element={<WorkPage />} />
+            </Routes>
+          </Suspense>
         </div>
       
     </>

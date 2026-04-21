@@ -35,8 +35,8 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
       <div ref={homeRef} className="min-h-screen w-full bg-white flex flex-col">
 
         {/* Main hero grid */}
-        <div className="flex-1 flex items-center px-8 md:px-12">
-          <div className="max-w-5xl w-full mx-auto grid md:grid-cols-2 gap-16 items-center py-20">
+        <div className="flex-1 flex items-center px-6 md:px-12 lg:px-20 py-16 md:py-24">
+          <div className="max-w-5xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
             {/* LEFT */}
             <div>
@@ -46,7 +46,7 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                 initial="hidden"
                 animate="show"
                 custom={0.1}
-                className="inline-flex items-center gap-2 text-xs text-gray-400 border border-gray-200 rounded-full px-3 py-1.5 mb-8 font-mono tracking-wide"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gray-500 border border-gray-200 rounded-full px-3 py-1 mb-8"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 available for work
@@ -58,7 +58,7 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                 initial="hidden"
                 animate="show"
                 custom={0.2}
-                className="text-4xl md:text-5xl font-light text-gray-900 leading-[1.15] tracking-tight mb-6"
+                className="text-3xl md:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] mb-6"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 I build{' '}
@@ -74,7 +74,7 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                 initial="hidden"
                 animate="show"
                 custom={0.3}
-                className="text-sm text-gray-400 leading-relaxed max-w-sm mb-10 font-light"
+                className="text-sm md:text-base text-gray-600 leading-relaxed max-w-sm mb-10"
               >
                 MERN stack developer focused on clean architecture, real
                 performance, and products that actually work in production.
@@ -86,17 +86,17 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                 initial="hidden"
                 animate="show"
                 custom={0.4}
-                className="flex items-center gap-3 mb-12"
+                className="flex flex-wrap items-center gap-3 mb-12"
               >
                 <button
                   onClick={resume}
-                  className="text-sm font-medium text-white bg-gray-900 px-5 py-2.5 rounded-full hover:opacity-80 active:scale-95 transition-all duration-150"
+                  className="text-sm md:text-base font-medium text-white bg-gray-900 px-5 py-2.5 rounded-full hover:opacity-80 active:scale-95 transition-all duration-150 w-full md:w-auto"
                 >
                   View Resume
                 </button>
                 <button
                   onClick={sayHi}
-                  className="text-sm text-gray-500 border border-gray-200 px-5 py-2.5 rounded-full hover:border-gray-400 hover:text-gray-800 active:scale-95 transition-all duration-150"
+                  className="text-sm md:text-base text-gray-600 border border-gray-200 px-5 py-2.5 rounded-full hover:border-gray-400 hover:text-gray-900 active:scale-95 transition-all duration-150 w-full md:w-auto"
                 >
                   Contact Me
                 </button>
@@ -108,11 +108,11 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                 initial="hidden"
                 animate="show"
                 custom={0.5}
-                className="flex items-center gap-8"
+                className="flex flex-wrap items-center gap-8 md:gap-12"
               >
                 {[
                   { num: '5+', label: 'Projects' },
-                  { num: '2y',  label: 'Experience' },
+                  { num: '6 months',  label: 'Experience' },
                   { num: '∞',  label: 'Coffee' },
                 ].map((m, i) => (
                   <React.Fragment key={m.label}>
@@ -121,7 +121,7 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                       <span className="text-xl font-medium text-gray-900 tracking-tight font-mono">
                         {m.num}
                       </span>
-                      <span className="text-[10px] uppercase tracking-widest text-gray-400 font-light">
+                      <span className="text-xs font-mono uppercase tracking-widest text-gray-500">
                         {m.label}
                       </span>
                     </div>
@@ -136,7 +136,7 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
               initial="hidden"
               animate="show"
               custom={0.3}
-              className="hidden md:flex flex-col gap-3"
+              className="hidden md:flex flex-col gap-4"
             >
               {[
                 {
@@ -156,20 +156,20 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                   key={project.title}
                   className="group border border-gray-100 rounded-2xl p-5 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
                 >
-                  <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-2">
+                  <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">
                     {project.tag}
                   </p>
                   <h3 className="text-sm font-medium text-gray-900 mb-1.5 tracking-tight">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-gray-400 leading-relaxed font-light mb-4">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
                     {project.desc}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {project.techs.map((t) => (
                       <span
                         key={t}
-                        className="text-[10px] font-mono text-gray-400 border border-gray-100 rounded-full px-2 py-0.5"
+                        className="text-xs font-mono text-gray-600 border border-gray-200 rounded-full px-3 py-1"
                       >
                         {t}
                       </span>
@@ -178,19 +178,19 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                   <button
                     type="button"
                     onClick={() => navigate('/work')}
-                    className="text-[11px] text-gray-300 group-hover:text-gray-600 mt-3 transition-colors duration-150"
+                    className="text-sm text-gray-500 group-hover:text-gray-900 mt-3 transition-colors duration-150"
                   >
                     View project →
                   </button>
                 </div>
               ))}
               <button
-                type="button"
-                onClick={() => navigate('/work')}
-                className="self-start text-xs font-mono text-gray-400 hover:text-gray-900 transition-colors duration-150 pt-1"
-              >
-                See all work →
-              </button>
+              type="button"
+              onClick={() => navigate('/work')}
+              className="self-start text-xs font-mono uppercase tracking-widest text-gray-500 hover:text-gray-900 transition-colors duration-150 pt-1"
+            >
+              See all work →
+            </button>
             </motion.div>
 
           </div>
@@ -202,12 +202,12 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
           initial="hidden"
           animate="show"
           custom={0.6}
-          className="border-t border-gray-100 px-8 md:px-12 py-3 flex gap-6"
+          className="border-t border-gray-100 max-w-5xl w-full mx-auto px-6 md:px-12 lg:px-20 py-4 flex flex-wrap gap-6"
         >
           {['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Framer Motion', 'GSAP'].map((tech) => (
             <span
               key={tech}
-              className="text-[10px] font-mono uppercase tracking-widest text-gray-300 hover:text-gray-600 transition-colors duration-150 cursor-default"
+              className="text-xs font-mono uppercase tracking-widest text-gray-500 hover:text-gray-900 transition-colors duration-150 cursor-default"
             >
               {tech}
             </span>

@@ -12,20 +12,8 @@ const projects = [
     image: "image/MoodyPlayer.png",
     liveLink: "https://moody-player.vercel.app",
     githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
+    year: "2025",
   },
-  {
-    tag: "Full Stack · MERN",
-    title: "Moody Player",
-    subtitle: "Mood-based music recommendation",
-    description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
-    image: "image/MoodyPlayer.png",
-    liveLink: "https://moody-player.vercel.app",
-    githubLink: "https://github.com/alokishere/Moody-Player",
-    year: "2024",
-  }
 ];
 
 const fadeUp = {
@@ -39,7 +27,7 @@ const fadeUp = {
 
 const WorkSample = () => {
   return (
-    <div className="bg-white px-8 md:px-16 py-24">
+    <div className="bg-white px-6 md:px-12 lg:px-20 py-16 md:py-24">
       <div className="max-w-5xl mx-auto">
 
         {/* Section header */}
@@ -47,19 +35,19 @@ const WorkSample = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-16"
         >
           <motion.p
             variants={fadeUp}
             custom={0}
-            className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-3"
+            className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3"
           >
             Selected Work
           </motion.p>
           <motion.h2
             variants={fadeUp}
             custom={0.1}
-            className="text-4xl md:text-5xl font-light tracking-tight text-gray-900"
+            className="text-3xl md:text-5xl font-light tracking-tight text-gray-900"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             Projects
@@ -67,14 +55,14 @@ const WorkSample = () => {
         </motion.div>
 
         {/* Projects */}
-        <div className="space-y-32">
+        <div className="space-y-16 md:space-y-24">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-80px" }}
-              className={`grid md:grid-cols-2 gap-12 md:gap-20 items-center ${index % 2 !== 0 ? "md:[&>*:first-child]:order-2" : ""
+              className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${index % 2 !== 0 ? "md:[&>*:first-child]:order-2" : ""
                 }`}
             >
               {/* Image */}
@@ -92,7 +80,7 @@ const WorkSample = () => {
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500" />
 
                 {/* Year badge */}
-                <div className="absolute top-4 right-4 text-[10px] font-mono text-gray-500 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                <div className="absolute top-4 right-4 text-xs font-mono uppercase tracking-widest text-gray-500 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
                   {project.year}
                 </div>
               </motion.div>
@@ -100,7 +88,7 @@ const WorkSample = () => {
               {/* Content */}
               <div className="flex flex-col gap-5">
                 <motion.div variants={fadeUp} custom={0.1}>
-                  <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-3">
+                  <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3">
                     {project.tag}
                   </p>
                   <h3
@@ -109,7 +97,7 @@ const WorkSample = () => {
                   >
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-400 font-light italic">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed italic">
                     {project.subtitle}
                   </p>
                 </motion.div>
@@ -123,7 +111,7 @@ const WorkSample = () => {
                 <motion.p
                   variants={fadeUp}
                   custom={0.3}
-                  className="text-sm text-gray-400 font-light leading-relaxed"
+                  className="text-sm md:text-base text-gray-600 leading-relaxed"
                 >
                   {project.description}
                 </motion.p>
@@ -137,7 +125,7 @@ const WorkSample = () => {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-[10px] font-mono text-gray-400 border border-gray-100 rounded-full px-2.5 py-1 uppercase tracking-wide"
+                      className="text-xs font-mono text-gray-600 border border-gray-200 rounded-full px-3 py-1 uppercase tracking-widest"
                     >
                       {tech}
                     </span>
@@ -148,13 +136,13 @@ const WorkSample = () => {
                 <motion.div
                   variants={fadeUp}
                   custom={0.5}
-                  className="flex items-center gap-6 pt-2"
+                  className="flex flex-wrap items-center gap-4 pt-2"
                 >
                   <a
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-gray-900 border border-gray-200 rounded-full px-5 py-2 hover:border-gray-400 active:scale-95 transition-all duration-150"
+                    className="text-sm md:text-base font-medium text-gray-900 border border-gray-200 rounded-full px-5 py-2 hover:border-gray-400 active:scale-95 transition-all duration-150 w-full md:w-auto text-center"
                   >
                     Live Demo
                   </a>
@@ -163,7 +151,7 @@ const WorkSample = () => {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-400 font-mono hover:text-gray-900 transition-colors duration-150"
+                    className="text-sm md:text-base text-gray-600 font-mono hover:text-gray-900 transition-colors duration-150"
                   >
                     GitHub →
                   </a>
@@ -179,9 +167,9 @@ const WorkSample = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-32 pt-8 border-t border-gray-100 flex items-center justify-between"
+          className="mt-16 md:mt-24 pt-8 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4"
         >
-          <p className="text-[10px] font-mono uppercase tracking-widest text-gray-300">
+          <p className="text-xs font-mono uppercase tracking-widest text-gray-500">
             More projects on GitHub
           </p>
 
@@ -189,7 +177,7 @@ const WorkSample = () => {
             href="https://github.com/alokishere"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] font-mono text-gray-400 hover:text-gray-900 transition-colors"
+            className="text-xs font-mono uppercase tracking-widest text-gray-500 hover:text-gray-900 transition-colors"
           >
             github.com/alokishere →
           </a>
@@ -200,4 +188,4 @@ const WorkSample = () => {
   );
 };
 
-export default WorkSample;
+export default React.memo(WorkSample);
