@@ -12,7 +12,6 @@ const MainRoutes = () => {
 
   useEffect(() => {
     const path = location.pathname;
-
     const scrollOptions = { behavior: "smooth", block: "start" };
 
     if (path === "/") homeRef.current?.scrollIntoView(scrollOptions);
