@@ -3,19 +3,53 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    tag: "Full Stack · SaaS",
+    title: "ARVI Chat",
+    subtitle: "AI-powered Hinglish chatbot",
+    description:
+      "SaaS-based AI chatbot supporting Hinglish conversations. Integrated LLM APIs for chat, vector search for context retrieval, and scalable backend architecture for real-time interactions.",
+    techStack: ["React", "Node.js", "MongoDB", "Socket.io", "AI APIs", "Vector DB"],
+    image: "image/Arvi.png",
+    liveLink: "https://chat.alokdev.in",
+    githubLink: "https://github.com/alokishere/ChatGPTClone",
+    year: "2025",
+  },{
+    tag: "Full Stack · SaaS",
+    title: "Email Blast System",
+    subtitle: "Bulk email sender with queue system",
+    description:
+      "SaaS platform for sending bulk emails with queue-based processing. Handles large-scale campaigns efficiently with controlled rate limiting and delivery tracking.",
+    techStack: ["Node.js", "MongoDB", "Queue System", "SMTP", "React"],
+    image: "image/emailblast.png",
+    liveLink: "https://mailblast.alokdev.in",
+    githubLink: "https://github.com/alokishere/EmailBlast",
+    year: "2026",
+  },
+  {
+    tag: "Full Stack · MERN",
+    title: "Postly",
+    subtitle: "AI caption generator with social feed",
+    description:
+      "Users upload images to generate AI-based captions with trending hashtags. Includes personalized feed system similar to Instagram with user-based content rendering.",
+    techStack: ["React", "Node.js", "MongoDB", "AI API", "Image Upload", "JWT"],
+    image: "image/postly.png",
+    liveLink: "https://github.com/alokishere/Postly",
+    githubLink: "https://github.com/alokishere/Postly",
+    year: "2025",
+  },
+  {
     tag: "Full Stack · MERN",
     title: "Moody Player",
     subtitle: "Mood-based music recommendation",
     description:
-      "Detects user's real-time mood via camera and recommends songs accordingly. Built with MERN stack — React frontend, Node/Express backend, MongoDB for data persistence.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS"],
+      "Detects user mood via camera and suggests songs using AI. Integrated real-time image processing with recommendation logic in a full MERN architecture.",
+    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS", "AI API"],
     image: "image/MoodyPlayer.png",
     liveLink: "https://moody-player.vercel.app",
     githubLink: "https://github.com/alokishere/Moody-Player",
     year: "2025",
   },
 ];
-
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: (i = 0) => ({

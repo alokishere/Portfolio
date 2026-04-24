@@ -23,57 +23,148 @@ const cardsContainer = {
 
 const categories = ['All', 'Full Stack', 'Chrome Extension', 'SaaS'];
 
+// const projects = [
+//   {
+//     category: 'Full Stack',
+//     title: 'Employee Management System',
+//     year: '2026',
+//     description:
+//       'Real-time WebSocket chat with typing indicators and seen receipts. Browser push notifications scheduled via node-cron. JWT authentication with role-based access.',
+//     tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Web Push API', 'JWT'],
+//   },
+//   {
+//     category: 'Chrome Extension',
+//     title: 'Google Maps Lead Scraper',
+//     year: '2026',
+//     description:
+//       'Auto-scrolling with MutationObserver to detect new listings. Click-per-listing phone number extraction. Clean CSV export for lead generation workflows.',
+//     tech: ['JavaScript', 'Chrome Extension API', 'DOM'],
+//   },
+//   {
+//     category: 'SaaS',
+//     title: 'ARVI Chatbot',
+//     year: '2025',
+//     description:
+//       'Hinglish-speaking AI assistant. Migrated from Gemini to Groq llama-3.3-70b for chat. Retained Gemini gemini-embedding-001 for vector search.',
+//     tech: ['Node.js', 'Groq API', 'Gemini Embeddings', 'Vector DB'],
+//   },
+//   {
+//     category: 'Full Stack',
+//     title: 'Sarathi India Portfolio',
+//     year: '2025',
+//     description:
+//       'Corporate portfolio for Lucknow-based IT company. Custom DNS setup with CNAME records. Dynamic Axios base URL for local/production switching.',
+//     tech: ['React', 'Tailwind', 'Vercel', 'Hostinger DNS'],
+//   },
+//   {
+//     category: 'Full Stack',
+//     title: 'BeFit Gym Website',
+//     year: '2026',
+//     description:
+//       'Production-ready gym landing page for a Lucknow client. Fully responsive with modern UI, service sections, and contact integration.',
+//     tech: ['React', 'Tailwind CSS'],
+//   },
+//   {
+//     category: 'Full Stack',
+//     title: 'React Admin Dashboard',
+//     year: '2026',
+//     description:
+//       'Blog creation interface with SERP preview. SEO meta fields, slug generation, rich text. Fixed layout and scrolling bugs in complex nested layouts.',
+//     tech: ['React', 'react-hook-form', 'SEO fields'],
+//   },
+// ];
+
 const projects = [
+  {
+    category: 'Full Stack',
+    title: 'Lebrostone E-Commerce',
+    year: '2026',
+    description:
+      'End-to-end MERN-based medicine e-commerce platform. Real-time features using Socket.io. Includes product management, orders, authentication, and live deployment.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'JWT'],
+    github: 'https://github.com/yourusername/lebrostone-ecom',
+  },
   {
     category: 'Full Stack',
     title: 'Employee Management System',
     year: '2026',
     description:
-      'Real-time WebSocket chat with typing indicators and seen receipts. Browser push notifications scheduled via node-cron. JWT authentication with role-based access.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Web Push API', 'JWT'],
+      'Full-stack MERN system with role-based access and real-time chat. Includes authentication, employee management, and live messaging features.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'JWT'],
+    github: 'https://github.com/yourusername/employee-management',
   },
   {
-    category: 'Chrome Extension',
-    title: 'Google Maps Lead Scraper',
+    category: 'Backend',
+    title: 'Project Management System',
     year: '2026',
     description:
-      'Auto-scrolling with MutationObserver to detect new listings. Click-per-listing phone number extraction. Clean CSV export for lead generation workflows.',
-    tech: ['JavaScript', 'Chrome Extension API', 'DOM'],
+      'Jira-like backend system with admin/member roles. Supports project creation, tasks, subtasks, and notes with structured access control.',
+    tech: ['Node.js', 'Express', 'MongoDB', 'JWT'],
+    github: 'https://github.com/yourusername/project-management-backend',
+  },
+  {
+    category: 'Frontend',
+    title: 'Ankur Tax Consultancy Website',
+    year: '2025',
+    description:
+      'Lead-generation website built in React. Optimized UI for service showcasing and client inquiry conversion.',
+    tech: ['React', 'Tailwind CSS'],
+    github: 'https://github.com/yourusername/ankur-tax',
   },
   {
     category: 'SaaS',
     title: 'ARVI Chatbot',
     year: '2025',
     description:
-      'Hinglish-speaking AI assistant. Migrated from Gemini to Groq llama-3.3-70b for chat. Retained Gemini gemini-embedding-001 for vector search.',
-    tech: ['Node.js', 'Groq API', 'Gemini Embeddings', 'Vector DB'],
+      'AI SaaS chatbot with Hinglish support. Integrated AI APIs with real-time interaction using sockets and scalable backend.',
+    tech: ['Node.js', 'React', 'Socket.io', 'AI APIs', 'MongoDB'],
+    github: 'https://github.com/yourusername/arvi-chatbot',
   },
+  {
+    category: 'SaaS',
+    title: 'Email Blast System',
+    year: '2026',
+    description:
+      'Bulk email sender SaaS platform with queue system for handling large-scale email campaigns efficiently.',
+    tech: ['Node.js', 'Queue System', 'MongoDB', 'SMTP'],
+    github: 'https://github.com/yourusername/email-blast',
+  },
+  {
+    category: 'Full Stack',
+    title: 'Moody Player',
+    year: '2026',
+    description:
+      'AI-powered music suggestion app using camera input and mood detection. Integrated with Gemini AI for intelligent recommendations.',
+    tech: ['React', 'Node.js', 'Camera API', 'Gemini AI'],
+    github: 'https://github.com/alokishere/Moody-Player',
+  },{
+  category: 'Full Stack',
+  title: 'Postly - AI Caption Generator Social Platform',
+  year: '2025',
+  description:
+    'MERN-based social platform where users upload images to generate AI captions with trending hashtags. Includes personalized feed system similar to Instagram with user-based content recommendations.',
+  tech: ['React', 'Node.js', 'MongoDB', 'AI API', 'Image Upload', 'JWT'],
+  github: 'https://github.com/yourusername/postly',
+},
   {
     category: 'Full Stack',
     title: 'Sarathi India Portfolio',
     year: '2025',
     description:
-      'Corporate portfolio for Lucknow-based IT company. Custom DNS setup with CNAME records. Dynamic Axios base URL for local/production switching.',
-    tech: ['React', 'Tailwind', 'Vercel', 'Hostinger DNS'],
-  },
-  {
-    category: 'Full Stack',
-    title: 'BeFit Gym Website',
-    year: '2026',
-    description:
-      'Production-ready gym landing page for a Lucknow client. Fully responsive with modern UI, service sections, and contact integration.',
+      'Corporate portfolio website for an IT company with responsive design and service-focused sections.',
     tech: ['React', 'Tailwind CSS'],
+    github: 'https://github.com/yourusername/sarathi-portfolio',
   },
   {
-    category: 'Full Stack',
-    title: 'React Admin Dashboard',
-    year: '2026',
+    category: 'Frontend',
+    title: 'Mulico Travels Website',
+    year: '2025',
     description:
-      'Blog creation interface with SERP preview. SEO meta fields, slug generation, rich text. Fixed layout and scrolling bugs in complex nested layouts.',
-    tech: ['React', 'react-hook-form', 'SEO fields'],
+      'Tour and travel website built in React with modern UI and lead generation focus. Live at mulicott.com.',
+    tech: ['React', 'Tailwind CSS'],
+    github: 'https://github.com/yourusername/mulico-travels',
   },
 ];
-
 const WorkPage = () => {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('All');
