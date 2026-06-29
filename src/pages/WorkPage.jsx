@@ -82,7 +82,7 @@ const projects = [
     description:
       'End-to-end MERN-based medicine e-commerce platform. Real-time features using Socket.io. Includes product management, orders, authentication, and live deployment.',
     tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'JWT'],
-    github: 'https://github.com/yourusername/lebrostone-ecom',
+    github: 'https://github.com/alokishere/labrostone',
   },
   {
     category: 'Full Stack',
@@ -91,7 +91,7 @@ const projects = [
     description:
       'Full-stack MERN system with role-based access and real-time chat. Includes authentication, employee management, and live messaging features.',
     tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'JWT'],
-    github: 'https://github.com/yourusername/employee-management',
+    github: 'https://github.com/alokishere/TaskFlowHub',
   },
   {
     category: 'Backend',
@@ -100,7 +100,7 @@ const projects = [
     description:
       'Jira-like backend system with admin/member roles. Supports project creation, tasks, subtasks, and notes with structured access control.',
     tech: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-    github: 'https://github.com/yourusername/project-management-backend',
+    github: 'https://github.com/alokishere/ProjectManagementSystem',
   },
   {
     category: 'Frontend',
@@ -109,7 +109,7 @@ const projects = [
     description:
       'Lead-generation website built in React. Optimized UI for service showcasing and client inquiry conversion.',
     tech: ['React', 'Tailwind CSS'],
-    github: 'https://github.com/yourusername/ankur-tax',
+    github: 'https://github.com/alokishere/Ankur_tax',
   },
   {
     category: 'SaaS',
@@ -118,7 +118,7 @@ const projects = [
     description:
       'AI SaaS chatbot with Hinglish support. Integrated AI APIs with real-time interaction using sockets and scalable backend.',
     tech: ['Node.js', 'React', 'Socket.io', 'AI APIs', 'MongoDB'],
-    github: 'https://github.com/yourusername/arvi-chatbot',
+    github: 'https://github.com/alokishere/LangChain',
   },
   {
     category: 'SaaS',
@@ -127,7 +127,7 @@ const projects = [
     description:
       'Bulk email sender SaaS platform with queue system for handling large-scale email campaigns efficiently.',
     tech: ['Node.js', 'Queue System', 'MongoDB', 'SMTP'],
-    github: 'https://github.com/yourusername/email-blast',
+    github: 'https://github.com/alokishere/EmailBlast',
   },
   {
     category: 'Full Stack',
@@ -144,7 +144,7 @@ const projects = [
   description:
     'MERN-based social platform where users upload images to generate AI captions with trending hashtags. Includes personalized feed system similar to Instagram with user-based content recommendations.',
   tech: ['React', 'Node.js', 'MongoDB', 'AI API', 'Image Upload', 'JWT'],
-  github: 'https://github.com/yourusername/postly',
+    github: 'https://github.com/alokishere/Postly',
 },
   {
     category: 'Full Stack',
@@ -153,7 +153,7 @@ const projects = [
     description:
       'Corporate portfolio website for an IT company with responsive design and service-focused sections.',
     tech: ['React', 'Tailwind CSS'],
-    github: 'https://github.com/yourusername/sarathi-portfolio',
+    github: 'https://github.com/alokishere/SARTHI',
   },
   {
     category: 'Frontend',
@@ -162,7 +162,7 @@ const projects = [
     description:
       'Tour and travel website built in React with modern UI and lead generation focus. Live at mulicott.com.',
     tech: ['React', 'Tailwind CSS'],
-    github: 'https://github.com/yourusername/mulico-travels',
+    github: 'https://github.com/alokishere/MULICO',
   },
 ];
 const WorkPage = () => {
@@ -251,13 +251,14 @@ const WorkPage = () => {
                 ))}
               </div>
 
-              <button
-                type="button"
-                className="text-sm text-gray-400 hover:text-gray-900 transition-colors"
-                onClick={() => navigate('/')}
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-400 hover:text-gray-900 transition-colors inline-block"
               >
                 View project →
-              </button>
+              </a>
             </motion.article>
           ))}
         </motion.section>

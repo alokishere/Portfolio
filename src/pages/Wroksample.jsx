@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -7,22 +7,26 @@ const projects = [
     title: "ARVI Chat",
     subtitle: "AI-powered Hinglish chatbot",
     description:
-      "SaaS-based AI chatbot supporting Hinglish conversations. Integrated LLM APIs for chat, vector search for context retrieval, and scalable backend architecture for real-time interactions.",
+      "SaaS AI chatbot with Hinglish conversation support. Uses LLM APIs (Groq/Gemini) for contextual chat responses, vector search for long-term memory retrieval, and Socket.io for real-time messaging. Scalable full-stack architecture with MongoDB.",
     techStack: ["React", "Node.js", "MongoDB", "Socket.io", "AI APIs", "Vector DB"],
     image: "image/Arvi.png",
     liveLink: "https://chat.alokdev.in",
     githubLink: "https://github.com/alokishere/ChatGPTClone",
+    hasLiveDemo: true,
+    liveLabel: "Live landing page",
     year: "2025",
   },{
     tag: "Full Stack · SaaS",
     title: "Email Blast System",
     subtitle: "Bulk email sender with queue system",
     description:
-      "SaaS platform for sending bulk emails with queue-based processing. Handles large-scale campaigns efficiently with controlled rate limiting and delivery tracking.",
-    techStack: ["Node.js", "MongoDB", "Queue System", "SMTP", "React"],
+      "SaaS platform for sending bulk personalized emails via Gmail OAuth/API. Queue-based processing with rate limiting prevents API abuse. Supports delivery status tracking, campaign analytics, and large-scale recipient management.",
+    techStack: ["React", "Node.js", "MongoDB", "Gmail API", "Queue System", "SMTP"],
     image: "image/emailblast.png",
     liveLink: "https://mailblast.alokdev.in",
     githubLink: "https://github.com/alokishere/EmailBlast",
+    hasLiveDemo: true,
+    liveLabel: "Live Demo",
     year: "2026",
   },
   {
@@ -30,11 +34,12 @@ const projects = [
     title: "Postly",
     subtitle: "AI caption generator with social feed",
     description:
-      "Users upload images to generate AI-based captions with trending hashtags. Includes personalized feed system similar to Instagram with user-based content rendering.",
+      "AI-powered social platform: upload images to generate captions and trending hashtags. Includes JWT-authenticated personalized feed, image upload system, and hashtag recommendations — inspired by Instagram UX patterns.",
     techStack: ["React", "Node.js", "MongoDB", "AI API", "Image Upload", "JWT"],
     image: "image/postly.png",
-    liveLink: "https://github.com/alokishere/Postly",
+    liveLink: null,
     githubLink: "https://github.com/alokishere/Postly",
+    hasLiveDemo: false,
     year: "2025",
   },
   {
@@ -42,11 +47,13 @@ const projects = [
     title: "Moody Player",
     subtitle: "Mood-based music recommendation",
     description:
-      "Detects user mood via camera and suggests songs using AI. Integrated real-time image processing with recommendation logic in a full MERN architecture.",
+      "Detects user mood via webcam using AI-powered image analysis, then recommends songs matching the detected emotion. Built with MERN stack, Camera API for real-time capture, and Tailwind CSS for a polished UI.",
     techStack: ["React", "Node.js", "Express.js", "MongoDB", "Camera API", "Tailwind CSS", "AI API"],
     image: "image/MoodyPlayer.png",
     liveLink: "https://moody-player.vercel.app",
     githubLink: "https://github.com/alokishere/Moody-Player",
+    hasLiveDemo: true,
+    liveLabel: "Live Demo",
     year: "2025",
   },
 ];
@@ -108,6 +115,9 @@ const WorkSample = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  width="800"
+                  height="600"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Subtle overlay on hover */}
@@ -172,19 +182,23 @@ const WorkSample = () => {
                   custom={0.5}
                   className="flex flex-wrap items-center gap-4 pt-2"
                 >
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm md:text-base font-medium text-gray-900 border border-gray-200 rounded-full px-5 py-2 hover:border-gray-400 active:scale-95 transition-all duration-150 w-full md:w-auto text-center"
-                  >
-                    Live Demo
-                  </a>
+                  {project.hasLiveDemo && project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.liveLabel || 'Live Demo'} for ${project.title}`}
+                      className="text-sm md:text-base font-medium text-gray-900 border border-gray-200 rounded-full px-5 py-2 hover:border-gray-400 active:scale-95 transition-all duration-150 w-full md:w-auto text-center"
+                    >
+                      {project.liveLabel || 'Live Demo'}
+                    </a>
+                  )}
 
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`GitHub repository for ${project.title}`}
                     className="text-sm md:text-base text-gray-600 font-mono hover:text-gray-900 transition-colors duration-150"
                   >
                     GitHub →

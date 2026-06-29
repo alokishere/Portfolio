@@ -25,10 +25,6 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
     window.open(whatsappURL, '_blank');
   };
 
-  const resume = () => {
-    window.open("https://drive.google.com/file/d/1OyhnUMNIA8QcYtzUuLIjTW8UVXoYd6b_/view?usp=sharing", "_blank");
-  };
-
   return (
     <>
       {/* ── HERO ── */}
@@ -74,10 +70,9 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                 initial="hidden"
                 animate="show"
                 custom={0.3}
-                className="text-sm md:text-base text-gray-600 leading-relaxed max-w-sm mb-10"
+                className="text-sm md:text-base text-gray-600 leading-relaxed max-w-sm mb-6"
               >
-                MERN stack developer focused on clean architecture, real
-                performance, and products that actually work in production.
+                MERN stack developer building production-ready web apps, SaaS tools, APIs, and automation products with React, Node.js, Express, and MongoDB.
               </motion.p>
 
               {/* CTAs */}
@@ -88,12 +83,14 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
                 custom={0.4}
                 className="flex flex-wrap items-center gap-3 mb-12"
               >
-                <button
-                  onClick={resume}
-                  className="text-sm md:text-base font-medium text-white bg-gray-900 px-5 py-2.5 rounded-full hover:opacity-80 active:scale-95 transition-all duration-150 w-full md:w-auto"
+                <a
+                  href="https://drive.google.com/file/d/1OyhnUMNIA8QcYtzUuLIjTW8UVXoYd6b_/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm md:text-base font-medium text-white bg-gray-900 px-5 py-2.5 rounded-full hover:opacity-80 active:scale-95 transition-all duration-150 w-full md:w-auto inline-block text-center"
                 >
-                  View Resume
-                </button>
+                  Download Resume
+                </a>
                 <button
                   onClick={sayHi}
                   className="text-sm md:text-base text-gray-600 border border-gray-200 px-5 py-2.5 rounded-full hover:border-gray-400 hover:text-gray-900 active:scale-95 transition-all duration-150 w-full md:w-auto"
@@ -112,8 +109,8 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
               >
                 {[
                   { num: '5+', label: 'Projects' },
-                  { num: '6 months',  label: 'Experience' },
-                  { num: '∞',  label: 'Coffee' },
+                  { num: '6+ months',  label: 'Experience' },
+                  { num: '10+',  label: 'Repos' },
                 ].map((m, i) => (
                   <React.Fragment key={m.label}>
                     {i !== 0 && <div className="w-px h-8 bg-gray-100" />}
@@ -214,6 +211,60 @@ const Home = ({ homeRef, aboutRef, workRef, contactRef }) => {
           ))}
         </motion.div>
       </div>
+
+      {/* Availability banner */}
+      <section className="w-full bg-white border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 py-8 md:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <p className="text-sm md:text-base text-gray-700 font-medium">
+              Available for Full-time roles / Internships / Freelance
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="mailto:alokvishwakarmabdh@gmail.com"
+              className="text-xs font-mono uppercase tracking-widest text-white bg-gray-900 rounded-full px-4 py-2 hover:bg-gray-800 active:scale-95 transition-all"
+            >
+              Hire Me
+            </a>
+            <a
+              href="https://linkedin.com/in/alok-js"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono uppercase tracking-widest text-gray-600 border border-gray-300 rounded-full px-4 py-2 hover:border-gray-500 hover:text-gray-900 transition-all"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* What I can do */}
+      <section className="w-full bg-white border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-12">
+          <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-4">
+            What I can do
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              'React Frontend',
+              'REST APIs',
+              'MongoDB Schemas',
+              'Auth / JWT',
+              'SaaS MVPs',
+              'Chrome Extensions',
+            ].map((skill) => (
+              <span
+                key={skill}
+                className="text-xs font-mono text-gray-600 border border-gray-200 rounded-full px-3 py-1 uppercase tracking-widest"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Other sections */}
       <section ref={aboutRef} id="about" className="min-h-screen relative z-10 bg-white">

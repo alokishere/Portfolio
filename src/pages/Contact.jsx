@@ -271,6 +271,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={label}
+                aria-label={`${label} profile`}
                 className="text-gray-500 hover:text-gray-900 transition-colors duration-150"
               >
                 <Icon size={15} />
