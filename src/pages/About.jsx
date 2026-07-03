@@ -158,7 +158,7 @@ const About = () => {
                 >
                   <Icon
                     className={`w-7 h-7 transition-all duration-200 ${
-                      hovered === index ? color : "text-gray-300"
+                      hovered === index ? color : color;
                     }`}
                   />
                   <span className="text-xs font-mono uppercase tracking-widest text-gray-500">
