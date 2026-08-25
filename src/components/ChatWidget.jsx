@@ -1,29 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import socket from "../../socket";
 const initialMessages = [
   {
     id: 1,
     role: "assistant",
     text: "Hi! I'm Alok's AI assistant. Ask me anything about my skills, projects, experience or tech stack.",
-  },
-  { id: 2, role: "user", text: "What projects have you built?" },
-  {
-    id: 3,
-    role: "assistant",
-    text: "I've built several full-stack projects including a URL Shortener, Repair Platform, and real-time applications using Socket.IO.",
-  },
-  { id: 4, role: "user", text: "What technologies do you use?" },
-  {
-    id: 5,
-    role: "assistant",
-    text: "I primarily work with JavaScript, React, Node.js, Express, MongoDB, Tailwind CSS and Socket.IO.",
-  },
-  { id: 6, role: "user", text: "Tell me about your URL shortener." },
-  {
-    id: 7,
-    role: "assistant",
-    text: "It's a full-stack URL shortening platform with authentication, authorization, URL management and click analytics.",
-  },
+  }
 ];
 
 const SparkIcon = ({ size = 18 }) => (
@@ -66,27 +48,48 @@ const ChatWidget = () => {
   const openChat = () => setIsOpen(true);
   const closeChat = () => setIsOpen(false);
 
-  const sendMessage = (event) => {
-    event.preventDefault();
-    const text = draft.trim();
-    if (!text) return;
+  useEffect(() => {
+  const handleMessage = (text) => {
+    console.log("AI:", text);
 
     setMessages((current) => [
       ...current,
-      { id: Date.now(), role: "user", text },
       {
-        id: Date.now() + 1,
+        id: Date.now(),
         role: "assistant",
-        text: "Thanks for your question — this demo chat is using example messages for now. Alok can tell you more about his work directly.",
+        text,
       },
     ]);
-    setDraft("");
   };
+
+  socket.on("message", handleMessage);
+
+  return () => {
+    socket.off("message", handleMessage);
+  };
+}, []);
+
+  const sendMessage = (event) => {
+  event.preventDefault();
+  const text = draft.trim();
+  if (!text) return;
+  setMessages((current) => [
+    ...current,
+    {
+      id: Date.now(),
+      role: "user",
+      text,
+    },
+  ]);
+  socket.emit("message", text);
+
+  setDraft("");
+};
 
   const clearChat = () => setMessages(initialMessages);
 
   return (
-    <>
+    <>  
       <button
         type="button"
         aria-label="Open portfolio chat"
