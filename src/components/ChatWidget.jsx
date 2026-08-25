@@ -1,4 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github-dark.css";
 import socket from "../../socket";
 const initialMessages = [
   {
@@ -124,7 +128,18 @@ const ChatWidget = () => {
               {messages.map((message) => (
                 <div key={message.id} className={`portfolio-chat-message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}>
                   {message.role === "assistant" && <span className="portfolio-chat-avatar"><SparkIcon size={14} /></span>}
-                  <p className="portfolio-chat-message">{message.text}</p>
+                  {message.role === "assistant" ? (
+                    <div className="portfolio-chat-message portfolio-chat-markdown">
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeHighlight]}
+                      >
+                        {message.text}
+                      </ReactMarkdown>
+                    </div>
+                  ) : (
+                    <p className="portfolio-chat-message">{message.text}</p>
+                  )}
                 </div>
               ))}
             </div>

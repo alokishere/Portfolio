@@ -1,7 +1,5 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap');
-
+@import "tailwindcss";
 
 @keyframes bounce-slow {
   0%, 100% { transform: translateY(0); }
@@ -87,6 +85,147 @@
 .portfolio-chat-composer input { min-width: 0; flex: 1; outline: none; color: #111827; font-size: 0.875rem; background: transparent; }
 .portfolio-chat-composer input::placeholder { color: #94a3b8; }
 .portfolio-chat-submit { cursor: pointer; }
+
+/* Markdown Styles for Assistant Messages */
+.portfolio-chat-markdown {
+  word-break: break-word;
+}
+.portfolio-chat-markdown > *:first-child {
+  margin-top: 0;
+}
+.portfolio-chat-markdown > *:last-child {
+  margin-bottom: 0;
+}
+.portfolio-chat-markdown p {
+  margin: 0 0 0.65rem 0;
+}
+.portfolio-chat-markdown p:last-child {
+  margin-bottom: 0;
+}
+.portfolio-chat-markdown strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+.portfolio-chat-markdown em {
+  font-style: italic;
+}
+.portfolio-chat-markdown h1,
+.portfolio-chat-markdown h2,
+.portfolio-chat-markdown h3,
+.portfolio-chat-markdown h4,
+.portfolio-chat-markdown h5,
+.portfolio-chat-markdown h6 {
+  color: #0f172a;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-top: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+.portfolio-chat-markdown h1 { font-size: 1.15rem; font-weight: 700; }
+.portfolio-chat-markdown h2 { font-size: 1.05rem; }
+.portfolio-chat-markdown h3 { font-size: 0.95rem; }
+.portfolio-chat-markdown h4 { font-size: 0.875rem; }
+
+.portfolio-chat-markdown ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0.65rem;
+}
+.portfolio-chat-markdown ol {
+  list-style-type: decimal;
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0.65rem;
+}
+.portfolio-chat-markdown li {
+  margin-bottom: 0.25rem;
+}
+.portfolio-chat-markdown li:last-child {
+  margin-bottom: 0;
+}
+.portfolio-chat-markdown li > ul,
+.portfolio-chat-markdown li > ol {
+  margin: 0.25rem 0 0.25rem;
+}
+
+.portfolio-chat-markdown :not(pre) > code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.825em;
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.3rem;
+  font-weight: 500;
+}
+
+.portfolio-chat-markdown pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  background: #0d1117;
+  color: #e6edf3;
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem;
+  margin: 0.75rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.portfolio-chat-markdown pre code {
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  display: block;
+}
+
+.portfolio-chat-markdown blockquote {
+  border-left: 3px solid #cbd5e1;
+  padding-left: 0.75rem;
+  margin: 0.6rem 0;
+  color: #64748b;
+  font-style: italic;
+}
+
+.portfolio-chat-markdown a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+.portfolio-chat-markdown a:hover {
+  color: #1d4ed8;
+}
+
+.portfolio-chat-markdown hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 0.75rem 0;
+}
+
+.portfolio-chat-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.8125rem;
+  display: block;
+  overflow-x: auto;
+}
+.portfolio-chat-markdown th,
+.portfolio-chat-markdown td {
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.65rem;
+  text-align: left;
+}
+.portfolio-chat-markdown th {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #0f172a;
+}
+.portfolio-chat-markdown tr:nth-child(even) {
+  background: #f8fafc;
+}
 
 @media (max-width: 640px) {
   .portfolio-chat-launch { bottom: 0.75rem; min-height: 3.5rem; }
