@@ -53,8 +53,30 @@ const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState(initialMessages);
+  const [status, setStatus] = useState(null); // null | "thinking" | "waiting" | "typing"
+  
   const messagesRef = useRef(null);
   const inputRef = useRef(null);
+  const statusTimerRef = useRef(null);
+  const timeoutTimerRef = useRef(null);
+  const typingTimerRef = useRef(null);
+  const statusRef = useRef(null);
+
+  useEffect(() => {
+    statusRef.current = status;
+  }, [status]);
+
+  const clearAllTimers = () => {
+    if (statusTimerRef.current) clearTimeout(statusTimerRef.current);
+    if (timeoutTimerRef.current) clearTimeout(timeoutTimerRef.current);
+    if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
+  };
+
+  useEffect(() => {
+    return () => {
+      clearAllTimers();
+    };
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -72,49 +94,102 @@ const ChatWidget = () => {
     if (isOpen && messagesRef.current) {
       messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
     }
-  }, [isOpen, messages]);
+  }, [isOpen, messages, status]);
 
   const openChat = () => setIsOpen(true);
   const closeChat = () => setIsOpen(false);
 
   useEffect(() => {
-  const handleMessage = (text) => {
+    const handleMessage = (text) => {
+      clearAllTimers();
+      setStatus("typing");
+
+      typingTimerRef.current = setTimeout(() => {
+        setMessages((current) => [
+          ...current,
+          {
+            id: Date.now(),
+            role: "assistant",
+            text,
+          },
+        ]);
+        setStatus(null);
+      }, 350);
+    };
+
+    const handleSocketError = () => {
+      if (statusRef.current) {
+        clearAllTimers();
+        setStatus(null);
+        setMessages((current) => [
+          ...current,
+          {
+            id: Date.now(),
+            role: "assistant",
+            text: "⚠️ **Connection Error**: Unable to reach the AI server. Please make sure the backend is running and try again.",
+          },
+        ]);
+      }
+    };
+
+    socket.on("message", handleMessage);
+    socket.on("connect_error", handleSocketError);
+    socket.on("error", handleSocketError);
+
+    return () => {
+      socket.off("message", handleMessage);
+      socket.off("connect_error", handleSocketError);
+      socket.off("error", handleSocketError);
+    };
+  }, []);
+
+  const sendMessage = (event) => {
+    event.preventDefault();
+    const text = draft.trim();
+    if (!text) return;
+
+    clearAllTimers();
 
     setMessages((current) => [
       ...current,
       {
         id: Date.now(),
-        role: "assistant",
+        role: "user",
         text,
       },
     ]);
+    setDraft("");
+
+    // Start with "Thinking..." state
+    setStatus("thinking");
+
+    // After 2.5s switch to "One moment..." if still waiting
+    statusTimerRef.current = setTimeout(() => {
+      setStatus("waiting");
+    }, 2500);
+
+    // Timeout guard after 30s
+    timeoutTimerRef.current = setTimeout(() => {
+      clearAllTimers();
+      setStatus(null);
+      setMessages((current) => [
+        ...current,
+        {
+          id: Date.now(),
+          role: "assistant",
+          text: "⚠️ **Response Timeout**: The AI assistant took too long to respond. Please try again.",
+        },
+      ]);
+    }, 30000);
+
+    socket.emit("message", text);
   };
 
-  socket.on("message", handleMessage);
-
-  return () => {
-    socket.off("message", handleMessage);
+  const clearChat = () => {
+    clearAllTimers();
+    setStatus(null);
+    setMessages(initialMessages);
   };
-}, []);
-
-  const sendMessage = (event) => {
-  event.preventDefault();
-  const text = draft.trim();
-  if (!text) return;
-  setMessages((current) => [
-    ...current,
-    {
-      id: Date.now(),
-      role: "user",
-      text,
-    },
-  ]);
-  socket.emit("message", text);
-
-  setDraft("");
-};
-
-  const clearChat = () => setMessages(initialMessages);
 
   return (
     <>  
@@ -155,9 +230,20 @@ const ChatWidget = () => {
               <span className="hidden sm:inline">Back to Portfolio</span>
             </button>
             <div className="flex flex-col items-center gap-1 whitespace-nowrap">
-              <strong className="text-sm font-semibold text-gray-900">Chat with Alok AI</strong>
+              <strong className="text-sm font-semibold text-gray-900">Chat with Alok's AI</strong>
               <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-500">
-                <i className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Online
+                {status ? (
+                  <>
+                    <i className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    {status === "thinking" && "Thinking..."}
+                    {status === "waiting" && "One moment..."}
+                    {status === "typing" && "Typing..."}
+                  </>
+                ) : (
+                  <>
+                    <i className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Online
+                  </>
+                )}
               </span>
             </div>
             <button
@@ -204,6 +290,26 @@ const ChatWidget = () => {
                   )}
                 </div>
               ))}
+
+              {status && (
+                <div className="flex items-end gap-2.5 min-w-0 max-w-[92%] sm:max-w-[85%] self-start transition-all duration-200">
+                  <span className="inline-flex items-center justify-center w-7 h-7 shrink-0 rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm animate-pulse">
+                    <SparkIcon size={14} />
+                  </span>
+                  <div className="flex items-center gap-2.5 px-4 py-3 rounded-2xl rounded-bl-sm border border-slate-100 bg-slate-50 text-slate-600 text-xs font-medium shadow-xs">
+                    <span className="inline-flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:-0.3s]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:-0.15s]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" />
+                    </span>
+                    <span>
+                      {status === "thinking" && "Thinking..."}
+                      {status === "waiting" && "One moment..."}
+                      {status === "typing" && "Typing..."}
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
