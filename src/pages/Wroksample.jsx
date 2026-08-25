@@ -68,7 +68,7 @@ const fadeUp = {
 
 const WorkSample = () => {
   return (
-    <div className="bg-white px-6 md:px-12 lg:px-20 py-16 md:py-24">
+    <div className="bg-white px-6 md:px-12 lg:px-20 pb-10 md:pb-16">
       <div className="max-w-5xl mx-auto">
 
         {/* Section header */}

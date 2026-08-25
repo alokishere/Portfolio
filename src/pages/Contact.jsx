@@ -260,7 +260,7 @@ const Contact = () => {
       </div>
 
       {/* Footer bar */}
-      <div className="border-t border-gray-100">
+      <div className="border-t border-gray-100 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Socials */}
           <div className="flex items-center gap-5">

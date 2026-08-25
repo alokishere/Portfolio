@@ -1,27 +1,66 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import {
   SiReact, SiNodedotjs, SiMongodb, SiJavascript,
   SiTailwindcss, SiGit, SiGithub, SiExpress,
+  SiHtml5,
+  SiCss3,
+  SiOpenai,
+  SiNpm,
+  SiSlack,
+  SiDocker,
+  SiPostman,
+  SiSocketdotio,
+  SiPostgresql,
 } from "react-icons/si";
+import { FaTerminal } from "react-icons/fa";
 
 const skills = [
-  { icon: SiReact,       name: "React",      color: "text-sky-500" },
-  { icon: SiNodedotjs,   name: "Node.js",    color: "text-green-600" },
-  { icon: SiExpress,     name: "Express",    color: "text-gray-700" },
-  { icon: SiMongodb,     name: "MongoDB",    color: "text-green-700" },
-  { icon: SiJavascript,  name: "JavaScript", color: "text-yellow-400" },
-  { icon: SiTailwindcss, name: "Tailwind",   color: "text-cyan-500" },
-  { icon: SiGit,         name: "Git",        color: "text-red-500" },
-  { icon: SiGithub,      name: "GitHub",     color: "text-gray-800" },
-];
+
+  { icon: SiReact,       name: "React",        color: "text-sky-500" },
+
+  { icon: SiNodedotjs,   name: "Node.js",      color: "text-green-600" },
+
+  { icon: SiExpress,     name: "Express",      color: "text-gray-700" },
+
+  { icon: SiMongodb,     name: "MongoDB",      color: "text-green-700" },
+
+  { icon: SiPostgresql,  name: "PostgreSQL",   color: "text-blue-600" },
+
+  { icon: SiJavascript,  name: "JavaScript",   color: "text-yellow-400" },
+
+  { icon: SiTailwindcss, name: "Tailwind",     color: "text-cyan-500" },
+
+  { icon: SiSocketdotio, name: "Socket.io",    color: "text-gray-900" },
+
+  { icon: SiHtml5,       name: "HTML",         color: "text-red-500" },
+
+  { icon: SiCss3,        name: "CSS",          color: "text-blue-500" },
+
+  { icon: SiGit,         name: "Git",          color: "text-red-500" },
+
+  { icon: SiGithub,      name: "GitHub",       color: "text-gray-800" },
+
+  { icon: SiPostman,     name: "Postman",      color: "text-orange-500" },
+
+  { icon: SiDocker,      name: "Docker",       color: "text-blue-500" },
+
+  { icon: SiSlack,       name: "Slack",        color: "text-purple-600" },
+
+  { icon: SiNpm,         name: "npm",          color: "text-red-600" },
+
+  { icon: FaTerminal,    name: "CLI",          color: "text-gray-800" },
+
+  { icon: SiOpenai,      name: "AI",           color: "text-gray-800" },
+
+];;
 
 const experience = [
   {
     role: "Full Stack Developer",
     company: "Sarathi India Pvt. Ltd.",
-    duration: "Current",
+    duration: "May 2026",
     desc: "End-to-end development — frontend, backend, APIs, and deployment.",
   },
   {
@@ -176,6 +215,16 @@ const About = () => {
               <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-4">
                 Education
               </p>
+              <p className="text-sm font-medium text-gray-900 tracking-tight">
+                Bachelor of technology
+              </p>
+              <p className="text-xs font-medium capitalize text-gray-600 my-1">
+                Computer science and Cyber security
+              </p>
+              <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mt-0.5">
+                Lucknow · 2026 - 2029
+              </p>
+              <br />
               <p className="text-sm font-medium text-gray-900 tracking-tight">
                 Diploma in Computer Science
               </p>

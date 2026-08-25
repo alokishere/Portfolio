@@ -34,7 +34,7 @@ const AboutPage = () => {
   };
 
   const experience = [
-    { year: '2026 - Present', title: 'Full Stack Developer', company: 'Sarathi India Pvt. Ltd.' },
+    { year: '2026 - May 2026', title: 'Full Stack Developer', company: 'Sarathi India Pvt. Ltd.' },
     { year: '2026', title: 'Web Developer Intern', company: 'Sarathi India Pvt. Ltd. (3 months)' },
     { year: '2026', title: 'Junior Full Stack Developer', company: 'Life Infotech (1 month)' },
   ];
