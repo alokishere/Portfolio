@@ -12,6 +12,31 @@ const initialMessages = [
   }
 ];
 
+const formatAssistantContent = (text) => {
+  if (typeof text !== "string") return "";
+  const trimmed = text.trim();
+
+  // If already wrapped in markdown code block, return as is
+  if (trimmed.startsWith("```") && trimmed.endsWith("```")) {
+    return text;
+  }
+
+  // Auto-detect raw JSON objects or arrays and format as fenced json block
+  if (
+    (trimmed.startsWith("{") && trimmed.endsWith("}")) ||
+    (trimmed.startsWith("[") && trimmed.endsWith("]"))
+  ) {
+    try {
+      const parsed = JSON.parse(trimmed);
+      return "```json\n" + JSON.stringify(parsed, null, 2) + "\n```";
+    } catch {
+      return "```json\n" + trimmed + "\n```";
+    }
+  }
+
+  return text;
+};
+
 const SparkIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path d="M12 2.8 13.9 10.1 21.2 12l-7.3 1.9L12 21.2l-1.9-7.3L2.8 12l7.3-1.9L12 2.8Z" fill="currentColor" />
@@ -54,7 +79,6 @@ const ChatWidget = () => {
 
   useEffect(() => {
   const handleMessage = (text) => {
-    console.log("AI:", text);
 
     setMessages((current) => [
       ...current,
@@ -151,11 +175,11 @@ const ChatWidget = () => {
             onWheel={(event) => event.stopPropagation()}
             onTouchMove={(event) => event.stopPropagation()}
           >
-            <div className="flex flex-col gap-5 w-full max-w-3xl mx-auto">
+            <div className="flex flex-col gap-5 w-full max-w-3xl mx-auto min-w-0">
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex items-end gap-2.5 max-w-[92%] sm:max-w-[85%] ${
+                  className={`flex items-end gap-2.5 min-w-0 max-w-[92%] sm:max-w-[85%] ${
                     message.role === "user" ? "self-end ml-auto" : "self-start"
                   }`}
                 >
@@ -165,16 +189,16 @@ const ChatWidget = () => {
                     </span>
                   )}
                   {message.role === "assistant" ? (
-                    <div className="portfolio-chat-markdown px-4 py-3.5 rounded-2xl rounded-bl-sm border border-slate-100 bg-slate-50 text-slate-700 text-sm leading-relaxed [overflow-wrap:anywhere]">
+                    <div className="portfolio-chat-markdown min-w-0 max-w-full overflow-hidden px-4 py-3.5 rounded-2xl rounded-bl-sm border border-slate-100 bg-slate-50 text-slate-700 text-sm leading-relaxed [overflow-wrap:anywhere]">
                       <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
                         rehypePlugins={[rehypeHighlight]}
                       >
-                        {message.text}
+                        {formatAssistantContent(message.text)}
                       </ReactMarkdown>
                     </div>
                   ) : (
-                    <p className="px-4 py-3.5 rounded-2xl rounded-br-sm border border-gray-900 bg-gray-900 text-white text-sm leading-relaxed [overflow-wrap:anywhere]">
+                    <p className="min-w-0 max-w-full px-4 py-3.5 rounded-2xl rounded-br-sm border border-gray-900 bg-gray-900 text-white text-sm leading-relaxed [overflow-wrap:anywhere]">
                       {message.text}
                     </p>
                   )}

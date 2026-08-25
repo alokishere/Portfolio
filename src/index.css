@@ -22,7 +22,10 @@
 
 /* Markdown Styles for Assistant Messages */
 .portfolio-chat-markdown {
+  min-width: 0;
+  max-width: 100%;
   word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .portfolio-chat-markdown > *:first-child {
   margin-top: 0;
@@ -101,6 +104,8 @@
   padding: 0.85rem 1rem;
   margin: 0.75rem 0;
   overflow-x: auto;
+  max-width: 100%;
+  box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
 .portfolio-chat-markdown pre code {
@@ -111,6 +116,10 @@
   border-radius: 0;
   color: inherit;
   display: block;
+  width: max-content;
+  min-width: 100%;
+  word-break: normal;
+  white-space: pre;
 }
 
 .portfolio-chat-markdown blockquote {
