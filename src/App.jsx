@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import Nav from "./components/Nav";
 import MouseFollower from "./components/MouseFollower";
+import ChatWidget from "./components/ChatWidget";
 import Lenis from "lenis";
 import { Route, Routes } from "react-router-dom";
 
@@ -45,6 +46,7 @@ const App = () => {
             <Route path="/work" element={<WorkPage />} />
           </Routes>
         </Suspense>
+        <ChatWidget />
       </div>
     </>
   );
