@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 const Home = lazy(() => import("./pages/Home"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const WorkPage = lazy(() => import("./pages/WorkPage"));
+import ActivityPage from './pages/ActivityPage';
 
 const App = () => {
   useEffect(() => {
@@ -44,6 +45,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/work" element={<WorkPage />} />
+            <Route path="/activity" element={<ActivityPage />} />
+
           </Routes>
         </Suspense>
         <ChatWidget />

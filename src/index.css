@@ -1,6 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap');
 @import "tailwindcss";
 
+.activity-page a,
+.activity-page button { transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease; }
+.activity-section { display: flex; gap: 2rem; border: 1px solid #edf0f5; border-radius: 1rem; padding: 1.35rem 1.35rem 1.25rem; transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+.activity-section:hover { border-color: #e1e6ef; box-shadow: 0 18px 45px -38px rgba(16,29,57,.45); transform: translateY(-1px); }
+.activity-platform-icon { display: flex; height: 3rem; width: 3rem; align-items: center; justify-content: center; border-radius: .7rem; font-size: 2.35rem; }
+.activity-platform-icon svg { height: 100%; width: 100%; }
+.activity-preview { min-width: 0; flex: 1; border-left: 1px solid #edf0f5; padding-left: 2rem; }
+.activity-preview-title { margin-bottom: .55rem; color: #71809b; font-size: .875rem; }
+.activity-row { display: flex; min-width: 0; align-items: center; gap: .8rem; border-bottom: 1px solid #f0f2f6; padding: .56rem 0; }
+.activity-row:last-child { border-bottom: 0; }
+.activity-row:hover { background: #fbfcfe; }
+.activity-post { border: 1px solid #edf0f5; border-radius: .65rem; padding: .85rem 1rem; }
+.activity-avatar { display: flex; height: 2.25rem; width: 2.25rem; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 999px; color: white; font-size: .65rem; font-weight: 600; }
+.activity-dot { height: .6rem; width: .6rem; flex-shrink: 0; border-radius: 999px; }
+.activity-difficulty { border-radius: 999px; padding: .2rem .6rem; font-size: .7rem; }
+.activity-easy { color: #10b981; }
+.activity-medium { color: #d99000; }
+.activity-hard { color: #dc2626; }
+.activity-difficulty.activity-easy { background: #e5f8ef; }
+.activity-difficulty.activity-medium { background: #fff4dc; }
+.activity-difficulty.activity-hard { background: #fee8e8; }
+.activity-dot.activity-easy { background: #34d399; }
+.activity-dot.activity-medium { background: #fbbf24; }
+.activity-dot.activity-hard { background: #ef4444; }
+.activity-video { min-width: 0; }
+
+@media (max-width: 767px) {
+  .activity-section { flex-direction: column; gap: 1.4rem; padding: 1.15rem; }
+  .activity-platform-icon { height: 2.5rem; width: 2.5rem; font-size: 2rem; }
+  .activity-preview { border-left: 0; border-top: 1px solid #edf0f5; padding-left: 0; padding-top: 1.15rem; }
+  .activity-row { gap: .55rem; }
+  .activity-row p { font-size: .78rem; }
+  .activity-row time { font-size: .68rem; }
+  .activity-difficulty { font-size: .65rem; padding: .15rem .45rem; }
+}
+
 @keyframes bounce-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }

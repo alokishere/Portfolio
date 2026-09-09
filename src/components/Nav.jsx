@@ -50,6 +50,7 @@ const Nav = () => {
 
   const handleWorkClick = () => navigate('/work');
   const handleAboutClick = () => navigate('/about');
+  const handleActivityClick = () => navigate('/activity');
 
   return (
     <header
@@ -66,6 +67,9 @@ const Nav = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-8 text-sm md:text-base font-medium text-gray-600 flex-wrap">
+          <button onClick={handleActivityClick} className="hover:text-gray-900 transition">
+            Activity
+          </button>
           <button onClick={handleWorkClick} className="hover:text-gray-900 transition">
             Work
           </button>
@@ -88,6 +92,7 @@ const Nav = () => {
         </div>
 
         <MobileMenu
+          onActivityClick={handleActivityClick}
           onWorkClick={handleWorkClick}
           onAboutClick={handleAboutClick}
           onContactClick={handleContactClick}
@@ -97,7 +102,7 @@ const Nav = () => {
   );
 };
 
-const MobileMenu = ({ onWorkClick, onAboutClick, onContactClick }) => {
+const MobileMenu = ({ onActivityClick, onWorkClick, onAboutClick, onContactClick }) => {
   const [open, setOpen] = useState(false);
 
   const handleWithClose = (fn) => {
@@ -125,6 +130,7 @@ const MobileMenu = ({ onWorkClick, onAboutClick, onContactClick }) => {
 
       {open && (
         <div className="absolute top-16 left-0 w-full bg-white py-4 px-6 flex flex-col items-stretch gap-4">
+          <button className="text-sm text-gray-600" onClick={() => handleWithClose(onActivityClick)}>Activity</button>
           <button className="text-sm text-gray-600" onClick={() => handleWithClose(onWorkClick)}>Work</button>
 
           <button className="text-sm text-gray-600" onClick={() => handleWithClose(onAboutClick)}>About</button>

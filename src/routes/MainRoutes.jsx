@@ -18,6 +18,7 @@ const MainRoutes = () => {
     if (path === "/about") aboutRef.current?.scrollIntoView(scrollOptions);
     if (path === "/worksample") workRef.current?.scrollIntoView(scrollOptions);
     if (path === "/contact") contactRef.current?.scrollIntoView(scrollOptions);
+    if (path === "/activity") contactRef.current?.scrollIntoView(scrollOptions);
   }, [location]);
 
   return (
