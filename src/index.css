@@ -26,6 +26,62 @@
 .activity-dot.activity-medium { background: #fbbf24; }
 .activity-dot.activity-hard { background: #ef4444; }
 .activity-video { min-width: 0; }
+.leetcode-section { display: block; }
+.leetcode-section-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.leetcode-external-link { display: inline-flex; align-items: center; gap: .5rem; color: #71809b; font-size: .75rem; white-space: nowrap; }
+.leetcode-external-link:hover { color: #101d39; }
+.leetcode-stats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; padding: 1rem 0 1.4rem; border-top: 1px solid #edf0f5; border-bottom: 1px solid #edf0f5; }
+.leetcode-stats div { display: flex; flex-direction: column; gap: .25rem; }
+.leetcode-stats strong { font-size: 1.25rem; font-weight: 500; letter-spacing: -.02em; }
+.leetcode-stats span { color: #71809b; font-size: .7rem; }
+.leetcode-total { color: #6366f1; }
+.leetcode-easy { color: #16a34a; }
+.leetcode-medium { color: #d97706; }
+.leetcode-hard { color: #dc2626; }
+.leetcode-streak { color: #ea580c; }
+.leetcode-days { color: #2563eb; }
+.leetcode-analysis { display: grid; grid-template-columns: minmax(230px, .7fr) minmax(0, 1.7fr); gap: 2rem; padding-top: 1.5rem; }
+.leetcode-chart-block { display: flex; align-items: center; gap: 1.4rem; }
+.leetcode-chart { position: relative; width: 150px; height: 150px; flex-shrink: 0; }
+.leetcode-chart-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
+.leetcode-chart-center strong { color: #101d39; font-size: 1.5rem; font-weight: 500; }
+.leetcode-chart-center span { color: #71809b; font-size: .7rem; }
+.leetcode-legend { display: flex; flex-direction: column; gap: .7rem; color: #71809b; font-size: .75rem; }
+.leetcode-legend div { display: grid; grid-template-columns: .5rem 1fr auto; align-items: center; gap: .5rem; }
+.leetcode-legend span { height: .45rem; width: .45rem; border-radius: 999px; }
+.leetcode-legend strong { color: #101d39; font-weight: 500; }
+.leetcode-calendar-block { min-width: 0; }
+.leetcode-calendar-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.leetcode-calendar-meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .8rem 1rem; color: #71809b; font-size: .7rem; }
+.leetcode-calendar-meta span { display: inline-flex; align-items: center; gap: .3rem; white-space: nowrap; }
+.leetcode-calendar-meta svg { color: #ea580c; height: .85rem; width: .85rem; }
+.leetcode-calendar-meta span:last-child svg { color: #2563eb; }
+.leetcode-calendar-scroll { overflow-x: auto; padding: 1rem 0 .6rem; }
+.leetcode-calendar { min-width: 720px; }
+.leetcode-weekdays { display: grid; grid-template-rows: repeat(7, 11px); gap: 3px; float: left; margin-right: .6rem; color: #9aa5ba; font-size: .56rem; line-height: 11px; }
+.leetcode-grid-wrap { position: relative; overflow: hidden; padding-top: 1.1rem; }
+.leetcode-months { position: absolute; top: 0; left: 0; right: 0; height: 1rem; color: #9aa5ba; font-size: .6rem; }
+.leetcode-months span { position: absolute; }
+.leetcode-grid { display: grid; grid-auto-columns: 11px; grid-template-rows: repeat(7, 11px); gap: 3px; width: max-content; }
+.leetcode-cell, .leetcode-scale i { display: block; height: 11px; width: 11px; border-radius: 2px; background: #f0f2f6; }
+.leetcode-cell.level-1, .leetcode-scale .level-1 { background: #d9f5e4; }
+.leetcode-cell.level-2, .leetcode-scale .level-2 { background: #9be6b8; }
+.leetcode-cell.level-3, .leetcode-scale .level-3 { background: #4fd083; }
+.leetcode-cell.level-4, .leetcode-scale .level-4 { background: #16a34a; }
+.leetcode-calendar-footer { display: flex; justify-content: space-between; gap: 1rem; color: #71809b; font-size: .7rem; }
+.leetcode-scale { display: inline-flex; align-items: center; gap: .25rem; }
+.leetcode-scale i { height: 10px; width: 10px; }
+.leetcode-recent { margin-top: 1.5rem; border-top: 1px solid #edf0f5; padding-top: 1.2rem; }
+.leetcode-submission { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #f0f2f6; padding: .65rem 0; }
+.leetcode-submission:last-child { border-bottom: 0; }
+.leetcode-submission:hover strong { color: #4f46e5; }
+.leetcode-submission strong { display: inline-block; color: #172543; font-size: .8rem; font-weight: 400; transition: color 160ms ease; }
+.leetcode-submission time { display: inline-flex; align-items: center; gap: .4rem; color: #71809b; font-size: .7rem; white-space: nowrap; }
+.leetcode-submission time svg { height: .8rem; width: .8rem; }
+.leetcode-language { display: inline-block; margin-left: .6rem; border: 1px solid #e5e7eb; border-radius: 999px; padding: .15rem .45rem; color: #71809b; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .62rem; }
+.leetcode-state { display: flex; align-items: center; justify-content: center; gap: .6rem; min-height: 220px; color: #71809b; font-size: .85rem; }
+.leetcode-error { color: #b91c1c; }
+.leetcode-empty { color: #9aa5ba; font-size: .8rem; }
 
 @media (max-width: 767px) {
   .activity-section { flex-direction: column; gap: 1.4rem; padding: 1.15rem; }
@@ -35,6 +91,15 @@
   .activity-row p { font-size: .78rem; }
   .activity-row time { font-size: .68rem; }
   .activity-difficulty { font-size: .65rem; padding: .15rem .45rem; }
+  .leetcode-section-header { flex-direction: column; }
+  .leetcode-external-link { margin-top: -.35rem; }
+  .leetcode-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem .8rem; }
+  .leetcode-analysis { grid-template-columns: 1fr; gap: 1.5rem; }
+  .leetcode-chart-block { justify-content: center; }
+  .leetcode-calendar-heading { flex-direction: column; }
+  .leetcode-calendar-meta { justify-content: flex-start; }
+  .leetcode-calendar-footer { flex-direction: column; }
+  .leetcode-submission { align-items: flex-start; flex-direction: column; gap: .35rem; }
 }
 
 @keyframes bounce-slow {

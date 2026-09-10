@@ -14,21 +14,6 @@ export const activityData = {
       ['docs: improve README', 'portfolio', '3 days ago'],
     ],
   },
-  leetcode: {
-    stats: [
-      ['130', 'Problems Solved'],
-      ['60', 'Easy', 'easy'],
-      ['62', 'Medium', 'medium'],
-      ['8', 'Hard', 'hard'],
-    ],
-    solved: [
-      ['Longest Substring Without Repeating Characters', 'Medium', '4 days ago', 'medium'],
-      ['Two Sum', 'Easy', '5 days ago', 'easy'],
-      ['Merge Strings Alternately', 'Easy', '6 days ago', 'easy'],
-      ['Valid Anagram', 'Easy', '1 week ago', 'easy'],
-      ['Best Time to Buy and Sell Stock', 'Easy', '1 week ago', 'easy'],
-    ],
-  },
   x: {
     stats: [['24', 'Posts'], ['1.8K', 'Followers'], ['210', 'Following']],
     latestPost: {

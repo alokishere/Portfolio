@@ -1,8 +1,9 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube, FaCode } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 import { SiLeetcode } from 'react-icons/si';
 import { LuArrowUpRight, LuBox, LuMessageCircle, LuRepeat2, LuHeart, LuThumbsUp } from 'react-icons/lu';
 import { activityData } from '../data/activityData';
+import LeetCodeSection from '../components/LeetCodeSection';
 
 const platformMeta = {
   github: { name: 'GitHub', description: 'Open source, side projects and experiments.', icon: FaGithub, color: 'text-black' },
@@ -36,10 +37,6 @@ function GithubActivity() {
   return <div className="activity-preview"><p className="activity-preview-title">Latest 5 commits</p><div>{activityData.github.commits.map(([message, repo, time]) => <div className="activity-row" key={message}><LuBox className="shrink-0 text-[#71809b]" size={16} /><p className="min-w-0 flex-1 truncate text-sm text-[#172543]">{message}</p><span className="hidden text-sm text-[#71809b] sm:block">{repo}</span><time className="text-right text-xs text-[#71809b]">{time}</time></div>)}</div></div>;
 }
 
-function LeetCodeActivity() {
-  return <div className="activity-preview"><p className="activity-preview-title">Last 5 solved problems</p><div>{activityData.leetcode.solved.map(([title, difficulty, time, tone]) => <div className="activity-row" key={title}><span className={`activity-dot activity-${tone}`} /><p className="min-w-0 flex-1 truncate text-sm text-[#172543]">{title}</p><span className={`activity-difficulty activity-${tone}`}>{difficulty}</span><time className="text-right text-xs text-[#71809b]">{time}</time></div>)}</div></div>;
-}
-
 function SocialActivity({ type }) {
   const post = activityData[type].latestPost;
   const Icon = type === 'x' ? FaXTwitter : FaLinkedin;
@@ -57,7 +54,7 @@ function ActivitySection({ type, children }) {
 const ActivityPage = () => <main className="activity-page min-h-screen bg-white text-[#101d39]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
   <div className="mx-auto max-w-5xl px-6 pb-10 pt-28 md:px-12 lg:px-20">
     <section className="mb-10 flex flex-col justify-between gap-8 md:mb-14 md:flex-row md:items-start"><div><p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-[#71809b]">Activity</p><h1 className="text-4xl font-light tracking-tight text-[#101d39] md:text-5xl">Across the <span className="text-[#9aa5ba]">platforms.</span></h1><p className="mt-3 text-base text-[#71809b]">Code, build, share, learn — a snapshot of my recent activity.</p></div><div className="w-fit rounded-2xl border border-[#edf0f5] px-4 py-3 text-xs text-[#71809b] shadow-[0_12px_32px_-28px_rgba(16,29,57,0.5)]"><p className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />Live Updates</p><p className="mt-1 pl-[18px]">Wed, 9 Sep 2025 · 6:44 PM</p></div></section>
-    <div className="space-y-5"><ActivitySection type="github"><GithubActivity /></ActivitySection><ActivitySection type="leetcode"><LeetCodeActivity /></ActivitySection><ActivitySection type="x"><SocialActivity type="x" /></ActivitySection><ActivitySection type="linkedin"><SocialActivity type="linkedin" /></ActivitySection><ActivitySection type="youtube"><YoutubeActivity /></ActivitySection></div>
+    <div className="space-y-5"><ActivitySection type="github"><GithubActivity /></ActivitySection><LeetCodeSection /><ActivitySection type="x"><SocialActivity type="x" /></ActivitySection><ActivitySection type="linkedin"><SocialActivity type="linkedin" /></ActivitySection><ActivitySection type="youtube"><YoutubeActivity /></ActivitySection></div>
     <footer className="mt-12 flex flex-col gap-6 border-t border-[#edf0f5] py-8 text-sm md:flex-row md:items-center md:justify-between"><span className="text-lg font-semibold text-[#101d39]">Alok.</span><nav className="flex flex-wrap gap-x-8 gap-y-3 text-[#71809b]"><a href="/activity">Activity</a><a href="/work">Work</a><a href="/about">About</a><a href="/#contact">Contact</a></nav><a href="http://alok.company/" target="_blank" rel="noreferrer" className="w-fit rounded-full bg-[#101d39] px-5 py-2.5 text-white transition hover:bg-[#1b2e50]">Hire Studio</a></footer>
   </div>
 </main>;
