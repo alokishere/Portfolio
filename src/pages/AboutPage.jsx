@@ -12,14 +12,11 @@ import {
   SiTailwindcss,
   SiSocketdotio,
   SiHtml5,
-  SiCss3,
   SiGit,
   SiGithub,
   SiPostman,
   SiDocker,
-  SiSlack,
   SiNpm,
-  SiOpenai,
 } from 'react-icons/si';
 import { FaTerminal } from 'react-icons/fa';
 import Contact from './Contact';
@@ -52,7 +49,6 @@ const AboutPage = () => {
       { icon: SiJavascript, name: 'JavaScript', color: 'text-yellow-400' },
       { icon: SiTailwindcss, name: 'Tailwind', color: 'text-cyan-500' },
       { icon: SiHtml5, name: 'HTML', color: 'text-red-500' },
-      { icon: SiCss3, name: 'CSS', color: 'text-blue-500' },
     ],
     Backend: [
       { icon: SiNodedotjs, name: 'Node.js', color: 'text-green-600' },
@@ -68,10 +64,8 @@ const AboutPage = () => {
       { icon: SiGithub, name: 'GitHub', color: 'text-gray-800' },
       { icon: SiPostman, name: 'Postman', color: 'text-orange-500' },
       { icon: SiDocker, name: 'Docker', color: 'text-blue-500' },
-      { icon: SiSlack, name: 'Slack', color: 'text-purple-600' },
       { icon: SiNpm, name: 'npm', color: 'text-red-600' },
       { icon: FaTerminal, name: 'CLI', color: 'text-gray-800' },
-      { icon: SiOpenai, name: 'AI', color: 'text-gray-800' },
     ],
   };
 
