@@ -79,8 +79,15 @@ function buildActivityData(calendar) {
   if (!submissionMap.size) return [];
 
   const startDate = new Date(Date.UTC(2026, 0, 1));
-  const submissionDates = [...submissionMap.keys()].sort();
-  const endDate = new Date(`${submissionDates.at(-1)}T00:00:00Z`);
+  const currentDate = new Date();
+  const endDate = new Date(
+    Date.UTC(
+      currentDate.getUTCFullYear(),
+      currentDate.getUTCMonth(),
+      currentDate.getUTCDate(),
+      0,
+    ),
+  );
 
   if (endDate < startDate) {
     return [];
