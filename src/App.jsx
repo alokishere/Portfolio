@@ -33,9 +33,9 @@ const App = () => {
   return (
     <>
       <div className="relative">
-        <MouseFollower
+        {/* <MouseFollower
           COLOR="#A855F7"
-        />
+        /> */}
 
         <div className="sticky top-0 z-50">
           <Nav />

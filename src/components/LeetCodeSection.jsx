@@ -2,67 +2,115 @@ import React, { useEffect, useMemo, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { LuCalendarDays, LuClock3, LuFlame, LuRotateCw } from "react-icons/lu";
+import { ActivityCalendar } from "react-activity-calendar";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { fetchLeetCodeActivity } from "../data/leetcode";
 
 const COLORS = { Easy: "#22c55e", Medium: "#f59e0b", Hard: "#ef4444" };
-const EMPTY_CALENDAR = { cells: [], months: [], years: [] };
 
 function parseCalendar(calendar) {
   if (!calendar) return {};
+
   if (typeof calendar === "object") return calendar;
-  try {
-    return JSON.parse(calendar);
-  } catch {
-    return {};
-  }
-}
 
-function calendarDateKey(date) {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-}
-
-function buildCalendar(calendar, activeYears = []) {
-  const entries = Object.entries(calendar).map(([timestamp, count]) => ({
-    date: new Date(Number(timestamp) * 1000),
-    count: Number(count) || 0,
-  }));
-  const years = activeYears.length
-    ? activeYears
-    : [...new Set(entries.map(({ date }) => date.getFullYear()))].sort();
-  if (!years.length) return EMPTY_CALENDAR;
-
-  const start = new Date(Math.min(...years), 0, 1);
-  start.setDate(start.getDate() - start.getDay());
-  const end = new Date(Math.max(...years), 11, 31);
-  end.setDate(end.getDate() + (6 - end.getDay()));
-  const lookup = new Map(
-    entries.map(({ date, count }) => [calendarDateKey(date), count]),
-  );
-  const cells = [];
-  const months = [];
-  const cursor = new Date(start);
-  let column = 0;
-  while (cursor <= end) {
-    for (let row = 0; row < 7; row += 1) {
-      const date = new Date(cursor);
-      date.setDate(cursor.getDate() + row);
-      cells.push({
-        date,
-        count: lookup.get(calendarDateKey(date)) || 0,
-        row,
-        column,
-      });
+  if (typeof calendar === "string") {
+    try {
+      const parsed = JSON.parse(calendar);
+      if (parsed && typeof parsed === "object") {
+        return parsed;
+      }
+    } catch (error) {
+      console.error("Failed to parse LeetCode submissionCalendar:", error);
     }
-    if (cursor.getDate() <= 7)
-      months.push({
-        label: cursor.toLocaleString("en-US", { month: "short" }),
-        column,
-      });
-    cursor.setDate(cursor.getDate() + 7);
-    column += 1;
   }
-  return { cells, months, years };
+
+  return {};
+}
+
+function getDateKeyFromTimestamp(timestamp) {
+  const date = new Date(Number(timestamp) * 1000);
+
+  if (Number.isNaN(date.getTime())) return null;
+
+  return date.toISOString().slice(0, 10);
+}
+
+function getLevel(count, maxCount) {
+  if (count <= 0 || maxCount <= 0) {
+    return 0;
+  }
+
+  const ratio = count / maxCount;
+
+  if (ratio <= 0.25) return 1;
+  if (ratio <= 0.5) return 2;
+  if (ratio <= 0.75) return 3;
+
+  return 4;
+}
+
+function buildActivityData(calendar) {
+  const parsedCalendar = parseCalendar(calendar);
+  const entries = Object.entries(parsedCalendar)
+    .map(([timestamp, count]) => {
+      const numericTimestamp = Number(timestamp);
+      const numericCount = Number(count);
+
+      return {
+        timestamp: numericTimestamp,
+        count: Number.isFinite(numericCount) ? numericCount : 0,
+      };
+    })
+    .filter(
+      ({ timestamp }) => Number.isFinite(timestamp) && timestamp > 0,
+    );
+
+  if (!entries.length) return [];
+
+  const submissionMap = new Map();
+  for (const { timestamp, count } of entries) {
+    const dateKey = getDateKeyFromTimestamp(timestamp);
+    if (!dateKey) continue;
+
+    const previousCount = submissionMap.get(dateKey) || 0;
+    submissionMap.set(dateKey, previousCount + count);
+  }
+
+  if (!submissionMap.size) return [];
+
+  const startDate = new Date(Date.UTC(2026, 0, 1));
+  const submissionDates = [...submissionMap.keys()].sort();
+  const endDate = new Date(`${submissionDates.at(-1)}T00:00:00Z`);
+
+  if (endDate < startDate) {
+    return [];
+  }
+
+  const displayedCounts = [...submissionMap].filter(([date]) => {
+    const currentDate = new Date(`${date}T00:00:00Z`);
+    return currentDate >= startDate && currentDate <= endDate;
+  });
+  const maxCount = Math.max(...displayedCounts.map(([, count]) => count));
+
+  const activityData = [];
+  const cursor = new Date(startDate);
+
+  while (cursor <= endDate) {
+    const date = cursor.toISOString().slice(0, 10);
+    const count = submissionMap.get(date) || 0;
+
+    activityData.push({
+      date,
+      count,
+      level: getLevel(count, maxCount),
+    });
+
+    cursor.setUTCDate(cursor.getUTCDate() + 1);
+  }
+
+  activityData.sort((a, b) => a.date.localeCompare(b.date));
+
+  return activityData;
 }
 
 function formatDate(timestamp) {
@@ -126,13 +174,13 @@ function DifficultyChart({ stats }) {
 }
 
 function SubmissionCalendar({ userCalendar }) {
-  const parsed = parseCalendar(userCalendar?.submissionCalendar);
-  const calendar = useMemo(
-    () => buildCalendar(parsed, userCalendar?.activeYears || []),
-    [parsed, userCalendar?.activeYears],
+  const activityData = useMemo(
+    () => buildActivityData(userCalendar?.submissionCalendar),
+    [userCalendar?.submissionCalendar],
   );
-  const maxCount = Math.max(1, ...calendar.cells.map((cell) => cell.count));
-  const weekdayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const activityYears = [
+    ...new Set(activityData.map(({ date }) => date.slice(0, 4))),
+  ];
   return (
     <div className="leetcode-calendar-block">
       <div className="leetcode-calendar-heading">
@@ -153,45 +201,18 @@ function SubmissionCalendar({ userCalendar }) {
           </span>
         </div>
       </div>
-      {calendar.cells.length ? (
-        <div className="leetcode-calendar-scroll">
-          <div className="leetcode-calendar">
-            <div className="leetcode-weekdays">
-              {weekdayLabels.map((day) => (
-                <span key={day}>{day.slice(0, 2)}</span>
-              ))}
-            </div>
-            <div className="leetcode-grid-wrap">
-              <div className="leetcode-months">
-                {calendar.months.map((month) => (
-                  <span
-                    key={`${month.label}-${month.column}`}
-                    style={{ left: `${month.column * 15}px` }}
-                  >
-                    {month.label}
-                  </span>
-                ))}
-              </div>
-              <div className="leetcode-grid">
-                {calendar.cells.map((cell) => {
-                  const intensity = cell.count
-                    ? Math.max(1, Math.ceil((cell.count / maxCount) * 4))
-                    : 0;
-                  return (
-                    <span
-                      key={cell.date.toISOString()}
-                      className={`leetcode-cell level-${intensity}`}
-                      title={`${cell.count} submission${cell.count === 1 ? "" : "s"} · ${cell.date.toLocaleDateString()}`}
-                      style={{
-                        gridRow: cell.row + 1,
-                        gridColumn: cell.column + 1,
-                      }}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+      {activityData.length ? (
+        <div className="leetcode-calendar">
+          <ActivityCalendar
+            data={activityData}
+            colorScheme="light"
+            fontSize={10}
+            blockSize={11}
+            blockMargin={3}
+            showTotalCount={false}
+            showWeekdayLabels
+            theme={{ light: ["#f0f2f6", "#14532d"] }}
+          />
         </div>
       ) : (
         <p className="leetcode-empty">
@@ -201,14 +222,7 @@ function SubmissionCalendar({ userCalendar }) {
       <div className="leetcode-calendar-footer">
         <span>
           Active Years:{" "}
-          {(userCalendar?.activeYears || calendar.years).join(", ") || "—"}
-        </span>
-        <span className="leetcode-scale">
-          Less <i className="level-0" />
-          <i className="level-1" />
-          <i className="level-2" />
-          <i className="level-3" />
-          <i className="level-4" /> More
+          {activityYears.join(", ") || "—"}
         </span>
       </div>
     </div>

@@ -5,10 +5,9 @@ import {
   SiReact, SiNodedotjs, SiMongodb, SiJavascript,
   SiTailwindcss, SiGit, SiGithub, SiExpress,
   SiHtml5,
-  SiCss3,
-  SiOpenai,
+  // SiOpenai,
   SiNpm,
-  SiSlack,
+  // SiSlack,
   SiDocker,
   SiPostman,
   SiSocketdotio,
@@ -36,8 +35,6 @@ const skills = [
 
   { icon: SiHtml5,       name: "HTML",         color: "text-red-500" },
 
-  { icon: SiCss3,        name: "CSS",          color: "text-blue-500" },
-
   { icon: SiGit,         name: "Git",          color: "text-red-500" },
 
   { icon: SiGithub,      name: "GitHub",       color: "text-gray-800" },
@@ -46,13 +43,13 @@ const skills = [
 
   { icon: SiDocker,      name: "Docker",       color: "text-blue-500" },
 
-  { icon: SiSlack,       name: "Slack",        color: "text-purple-600" },
+  // { icon: SiSlack,       name: "Slack",        color: "text-purple-600" },
 
   { icon: SiNpm,         name: "npm",          color: "text-red-600" },
 
   { icon: FaTerminal,    name: "CLI",          color: "text-gray-800" },
 
-  { icon: SiOpenai,      name: "AI",           color: "text-gray-800" },
+  // { icon: SiOpenai,      name: "AI",           color: "text-gray-800" },
 
 ];;
 
